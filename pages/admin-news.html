@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kheema Bisht Inter college | News Manager</title>
+  <meta name="description" content="Manage and export school news JSON content." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <strong class="js-school-name">Kheema Bisht Inter college</strong>
+        <small class="js-tagline">School Tagline</small>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu">Menu</button>
+      <nav class="site-nav">
+        <a href="../index.html">Home</a>
+        <a href="news.html" class="active">News</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <div class="container">
+        <h1>News Manager</h1>
+        <p>Edit JSON and export file. Replace `/assets/data/news.json` with exported content.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card">
+        <textarea id="news-json" style="min-height:320px"></textarea>
+        <div class="button-row">
+          <button id="validate-btn" class="btn btn-outline" type="button">Validate JSON</button>
+          <button id="download-btn" class="btn btn-primary" type="button">Download news.json</button>
+        </div>
+        <p id="admin-status" class="form-status"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/site-config.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const area = document.getElementById("news-json");
+      const status = document.getElementById("admin-status");
+      const validateBtn = document.getElementById("validate-btn");
+      const downloadBtn = document.getElementById("download-btn");
+
+      fetch("../assets/data/news.json")
+        .then((res) => res.json())
+        .then((data) => {
+          area.value = JSON.stringify(data, null, 2);
+        })
+        .catch(() => {
+          status.textContent = "Could not load existing file. Paste JSON manually.";
+        });
+
+      validateBtn.addEventListener("click", () => {
+        try {
+          const parsed = JSON.parse(area.value);
+          if (!Array.isArray(parsed)) throw new Error();
+          status.textContent = "Valid JSON array. You can download it now.";
+        } catch {
+          status.textContent = "Invalid format. Use array: [{\"date\":\"...\",\"title\":\"...\"}]";
+        }
+      });
+
+      downloadBtn.addEventListener("click", () => {
+        try {
+          const parsed = JSON.parse(area.value);
+          if (!Array.isArray(parsed)) throw new Error();
+          const blob = new Blob([JSON.stringify(parsed, null, 2)], { type: "application/json" });
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = "news.json";
+          a.click();
+          URL.revokeObjectURL(a.href);
+          status.textContent = "Downloaded. Move this file to /assets/data/news.json.";
+        } catch {
+          status.textContent = "Fix JSON before download.";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

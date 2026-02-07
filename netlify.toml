@@ -1,0 +1,59 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/about"
+  to = "/pages/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/academics"
+  to = "/pages/academics.html"
+  status = 200
+
+[[redirects]]
+  from = "/admissions"
+  to = "/pages/admissions.html"
+  status = 200
+
+[[redirects]]
+  from = "/facilities"
+  to = "/pages/facilities.html"
+  status = 200
+
+[[redirects]]
+  from = "/gallery"
+  to = "/pages/gallery.html"
+  status = 200
+
+[[redirects]]
+  from = "/news"
+  to = "/pages/news.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/pages/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin-news"
+  to = "/pages/admin-news.html"
+  status = 200
+
+[[redirects]]
+  from = "/admission-success"
+  to = "/pages/admission-success.html"
+  status = 200

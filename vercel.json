@@ -1,0 +1,23 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/academics", "destination": "/pages/academics.html" },
+    { "source": "/admissions", "destination": "/pages/admissions.html" },
+    { "source": "/facilities", "destination": "/pages/facilities.html" },
+    { "source": "/gallery", "destination": "/pages/gallery.html" },
+    { "source": "/news", "destination": "/pages/news.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/admin-news", "destination": "/pages/admin-news.html" },
+    { "source": "/admission-success", "destination": "/pages/admission-success.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
