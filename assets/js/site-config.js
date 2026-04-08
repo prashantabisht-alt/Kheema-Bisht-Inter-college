@@ -1,7 +1,7 @@
 window.SITE_CONFIG = {
   defaultLanguage: "en",
   schoolName: "Kheema Bisht Inter College",
-  tagline: "Excellence in Learning, Character, and Leadership",
+  tagline: "Education for All. Excellence for Each.",
   email: "deepabisht6962@gmail.com",
   phone: "9761621360, 9837712057",
   address: "Gaujhariya, Khatima, Udham Singh Nagar, Uttarakhand 262308, India",
