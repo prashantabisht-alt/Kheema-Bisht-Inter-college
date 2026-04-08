@@ -425,6 +425,9 @@
   }
   if (cfg.address) setText(".js-address", cfg.address);
 
+  // Update copyright year automatically
+  setText(".js-year", String(new Date().getFullYear()));
+
   const orgSchema = document.querySelector("script[type='application/ld+json']");
   if (orgSchema) {
     try {
