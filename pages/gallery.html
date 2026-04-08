@@ -4,15 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kheema Bisht Inter College | Gallery</title>
-  <meta name="description" content="Photo gallery of Kheema Bisht Inter College campus life, events, and activities." />
+  <meta name="description" content="Photo gallery of Kheema Bisht Inter College — campus, sports, cultural events, academic programs, and school life." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Kheema Bisht Inter College | Gallery" />
   <meta property="og:description" content="See campus, events, classrooms, and activities at Kheema Bisht Inter College." />
-  <meta property="og:image" content="../assets/images/og-image.jpg" />
-  <meta property="og:url" content="" />
+  <meta property="og:image" content="/assets/images/hero/campus-hero.jpg" />
+  <meta property="og:url" content="https://kheemabishtintercollege.in/gallery" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="" />
+  <link rel="canonical" href="https://kheemabishtintercollege.in/gallery" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="preload" as="image" href="/assets/images/gallery/campus/campus-view-1-thumb.jpg" />
 </head>
 <body>
   <header class="site-header">
@@ -28,6 +29,7 @@
         <a href="academics.html">Academics</a>
         <a href="admissions.html">Admissions</a>
         <a href="facilities.html">Facilities</a>
+        <a href="staff.html">Staff</a>
         <a class="active" href="gallery.html">Gallery</a>
         <a href="news.html">News</a>
         <a href="contact.html">Contact</a>
@@ -36,49 +38,53 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="page-title" data-reveal>
       <div class="container">
         <h1 data-i18n="galleryPageTitle">Gallery</h1>
-        <p data-i18n="galleryPageSubtitle">Drop your photos into `assets/images/gallery/` using the same filenames listed below.</p>
+        <p data-i18n="galleryPageSubtitle">Glimpses of campus life, sports, culture, academics, and events at Kheema Bisht Inter College.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container gallery">
-        <figure class="card gallery-photo" data-reveal>
-          <img src="../assets/images/gallery/campus-view.jpg" alt="School campus view" loading="lazy" />
-          <div class="placeholder-label">Add `campus-view.jpg` in `assets/images/gallery/`</div>
-          <figcaption>Campus View</figcaption>
-        </figure>
-        <figure class="card gallery-photo" data-reveal>
-          <img src="../assets/images/gallery/classroom-activity.jpg" alt="Classroom activity" loading="lazy" />
-          <div class="placeholder-label">Add `classroom-activity.jpg` in `assets/images/gallery/`</div>
-          <figcaption>Classroom Activity</figcaption>
-        </figure>
-        <figure class="card gallery-photo" data-reveal>
-          <img src="../assets/images/gallery/science-lab.jpg" alt="Science lab practical" loading="lazy" />
-          <div class="placeholder-label">Add `science-lab.jpg` in `assets/images/gallery/`</div>
-          <figcaption>Science Lab</figcaption>
-        </figure>
-        <figure class="card gallery-photo" data-reveal>
-          <img src="../assets/images/gallery/sports-day.jpg" alt="Sports day event" loading="lazy" />
-          <div class="placeholder-label">Add `sports-day.jpg` in `assets/images/gallery/`</div>
-          <figcaption>Sports Day</figcaption>
-        </figure>
-        <figure class="card gallery-photo" data-reveal>
-          <img src="../assets/images/gallery/annual-function.jpg" alt="Annual function performance" loading="lazy" />
-          <div class="placeholder-label">Add `annual-function.jpg` in `assets/images/gallery/`</div>
-          <figcaption>Annual Function</figcaption>
-        </figure>
-        <figure class="card gallery-photo" data-reveal>
-          <img src="../assets/images/gallery/library.jpg" alt="School library" loading="lazy" />
-          <div class="placeholder-label">Add `library.jpg` in `assets/images/gallery/`</div>
-          <figcaption>Library</figcaption>
-        </figure>
+      <div class="container">
+        <div
+          id="gallery-root"
+          class="gallery-root"
+          data-manifest="/assets/images/gallery/manifest.json"
+          data-base="/assets/images/gallery"
+        >
+          <!-- Tabs and photo grid are injected by main.js as soon as the manifest loads. -->
+          <p class="gallery-loading" role="status">Loading photos…</p>
+          <noscript>
+            <p>Photo gallery requires JavaScript. Browse categories directly:</p>
+            <ul>
+              <li><a href="/assets/images/gallery/manifest.json">Gallery manifest (JSON)</a></li>
+            </ul>
+          </noscript>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Lightbox container lives at body level so it can go full-screen without layout clipping -->
+  <div
+    id="lightbox"
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-label="Photo viewer"
+  >
+    <button class="lightbox-close" aria-label="Close photo viewer" type="button">×</button>
+    <button class="lightbox-prev"  aria-label="Previous photo"     type="button">‹</button>
+    <button class="lightbox-next"  aria-label="Next photo"         type="button">›</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" src="" alt="" />
+      <figcaption class="lightbox-caption"></figcaption>
+    </figure>
+    <p class="lightbox-counter" aria-live="polite"></p>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-grid">

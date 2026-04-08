@@ -23,5 +23,28 @@ window.SITE_CONFIG = {
     faculty: 95,
     achievements: 120,
     years: 25
+  },
+  images: {
+    logo: "/assets/images/brand/logo.png",
+    logoSmall: "/assets/images/brand/logo-192.png",
+    heroDesktop: "/assets/images/hero/campus-hero.jpg",
+    heroMobile: "/assets/images/hero/campus-hero-mobile.jpg",
+    principal: "/assets/images/portraits/principal.jpg",
+    manager: "/assets/images/portraits/manager.jpg",
+    galleryManifest: "/assets/images/gallery/manifest.json"
+  },
+  leadership: {
+    principal: {
+      name: "Mrs. Deepa Bisht",
+      title: "Principal",
+      image: "/assets/images/portraits/principal.jpg",
+      bio: "Leads with over two decades of experience in school education, focusing on strong academic foundations and student character development."
+    },
+    manager: {
+      name: "Manager",
+      title: "Manager",
+      image: "/assets/images/portraits/manager.jpg",
+      bio: "Oversees school operations, infrastructure, and long-term growth planning to support every student's learning journey."
+    }
   }
 };

@@ -8,6 +8,7 @@
       academics: "Academics",
       admissions: "Admissions",
       facilities: "Facilities",
+      staff: "Staff",
       gallery: "Gallery",
       news: "News",
       contact: "Contact",
@@ -129,6 +130,7 @@
       academics: "शैक्षणिक",
       admissions: "प्रवेश",
       facilities: "सुविधाएं",
+      staff: "शिक्षकगण",
       gallery: "गैलरी",
       news: "समाचार",
       contact: "संपर्क",
@@ -295,6 +297,7 @@
       "academics.html": dict.academics,
       "admissions.html": dict.admissions,
       "facilities.html": dict.facilities,
+      "staff.html": dict.staff,
       "gallery.html": dict.gallery,
       "news.html": dict.news,
       "contact.html": dict.contact,
@@ -454,7 +457,8 @@
 
     ensureLink("manifest", `${root}manifest.json`);
     ensureLink("icon", `${root}favicon.svg`, { type: "image/svg+xml" });
-    ensureLink("apple-touch-icon", `${root}assets/images/school-logo.png`);
+    ensureLink("icon", `${root}assets/images/brand/logo-192.png`, { type: "image/png", sizes: "192x192" });
+    ensureLink("apple-touch-icon", `${root}assets/images/brand/logo-192.png`);
     ensureLink("mask-icon", `${root}favicon.svg`, { color: "#04558a" });
 
     if (!head.querySelector('meta[name="theme-color"]')) {
@@ -509,6 +513,7 @@
       academics: "Academics",
       admissions: "Admissions",
       facilities: "Facilities",
+      staff: "Our Staff",
       gallery: "Gallery",
       news: "News",
       contact: "Contact",
@@ -727,12 +732,176 @@
     tickerTrack.innerHTML = combined.map((item) => `<span>${item}</span>`).join("");
   }
 
-  document.querySelectorAll(".gallery-photo img").forEach((img) => {
-    img.addEventListener("error", () => {
-      const card = img.closest(".gallery-photo");
-      if (card) card.classList.add("missing");
-    });
-  });
+  // ---- Gallery (tabs + grid + lightbox) ----
+  // Reads a JSON manifest written by process_photos.py that maps each category
+  // to a list of { slug, alt } entries. For each photo the thumbnail lives at
+  // `{base}/{category}/{slug}-thumb.jpg` and the full-size at `{base}/{category}/{slug}.jpg`.
+  (function initGallery() {
+    const root = document.getElementById("gallery-root");
+    if (!root) return;
+
+    const manifestUrl = root.getAttribute("data-manifest");
+    const basePath = (root.getAttribute("data-base") || "").replace(/\/$/, "");
+    if (!manifestUrl || !basePath) return;
+
+    const CATEGORY_LABELS = {
+      all: "All",
+      campus: "Campus",
+      sports: "Sports",
+      cultural: "Cultural",
+      academic: "Academic",
+      events: "Events",
+      staff: "Staff"
+    };
+
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = lightbox && lightbox.querySelector(".lightbox-img");
+    const lbCap = lightbox && lightbox.querySelector(".lightbox-caption");
+    const lbCounter = lightbox && lightbox.querySelector(".lightbox-counter");
+    const lbClose = lightbox && lightbox.querySelector(".lightbox-close");
+    const lbPrev = lightbox && lightbox.querySelector(".lightbox-prev");
+    const lbNext = lightbox && lightbox.querySelector(".lightbox-next");
+
+    // State for the currently visible photo set (after tab filtering).
+    let visible = [];
+    let currentIdx = 0;
+
+    const openLightbox = (idx) => {
+      if (!lightbox || !visible.length) return;
+      currentIdx = (idx + visible.length) % visible.length;
+      const item = visible[currentIdx];
+      lbImg.src = item.full;
+      lbImg.alt = item.alt || "";
+      if (lbCap) lbCap.textContent = item.alt || "";
+      if (lbCounter) lbCounter.textContent = `${currentIdx + 1} / ${visible.length}`;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+      if (lbClose) lbClose.focus();
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+      if (lbImg) lbImg.src = "";
+    };
+
+    const step = (delta) => openLightbox(currentIdx + delta);
+
+    if (lightbox) {
+      if (lbClose) lbClose.addEventListener("click", closeLightbox);
+      if (lbPrev) lbPrev.addEventListener("click", () => step(-1));
+      if (lbNext) lbNext.addEventListener("click", () => step(1));
+      lightbox.addEventListener("click", (e) => {
+        // Click on the dark backdrop (not the figure/controls) closes.
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        else if (e.key === "ArrowLeft") step(-1);
+        else if (e.key === "ArrowRight") step(1);
+      });
+    }
+
+    const buildGrid = (items) => {
+      visible = items;
+      const grid = document.createElement("div");
+      grid.className = "gallery-grid";
+      items.forEach((item, idx) => {
+        const fig = document.createElement("figure");
+        fig.className = "gallery-photo";
+        fig.innerHTML =
+          `<button type="button" class="gallery-photo-btn" aria-label="Open photo: ${item.alt || ""}">` +
+          `<img src="${item.thumb}" alt="${item.alt || ""}" loading="lazy" decoding="async" />` +
+          "</button>" +
+          `<figcaption>${item.alt || ""}</figcaption>`;
+        fig.querySelector("button").addEventListener("click", () => openLightbox(idx));
+        // If a thumbnail fails to load, mark the card but keep layout stable.
+        fig.querySelector("img").addEventListener("error", () => {
+          fig.classList.add("missing");
+        });
+        grid.appendChild(fig);
+      });
+      return grid;
+    };
+
+    fetch(manifestUrl)
+      .then((res) => {
+        if (!res.ok) throw new Error("manifest load failed: " + res.status);
+        return res.json();
+      })
+      .then((manifest) => {
+        // Flatten per-category entries into {category, slug, alt, thumb, full}
+        const categories = Object.keys(manifest).filter(
+          (c) => Array.isArray(manifest[c]) && manifest[c].length > 0
+        );
+        if (!categories.length) {
+          root.innerHTML = "<p>No photos yet. Check back soon.</p>";
+          return;
+        }
+
+        const expand = (cat) =>
+          manifest[cat].map((entry) => ({
+            category: cat,
+            slug: entry.slug,
+            alt: entry.alt || "",
+            thumb: `${basePath}/${cat}/${entry.slug}-thumb.jpg`,
+            full: `${basePath}/${cat}/${entry.slug}.jpg`
+          }));
+
+        const allItems = categories.reduce((acc, cat) => acc.concat(expand(cat)), []);
+
+        // Clear the "Loading photos…" placeholder.
+        root.innerHTML = "";
+
+        // Tabs: "All" first, then each category that has photos.
+        const tabs = document.createElement("div");
+        tabs.className = "gallery-tabs";
+        tabs.setAttribute("role", "tablist");
+        const tabKeys = ["all", ...categories];
+        const tabButtons = {};
+        tabKeys.forEach((key) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "gallery-tab";
+          btn.setAttribute("role", "tab");
+          btn.dataset.category = key;
+          const count = key === "all" ? allItems.length : manifest[key].length;
+          btn.innerHTML = `${CATEGORY_LABELS[key] || key} <span class="gallery-tab-count">${count}</span>`;
+          tabs.appendChild(btn);
+          tabButtons[key] = btn;
+        });
+        root.appendChild(tabs);
+
+        // Grid wrapper — we'll replace its contents on tab switch.
+        const gridWrap = document.createElement("div");
+        gridWrap.className = "gallery-grid-wrap";
+        root.appendChild(gridWrap);
+
+        const showCategory = (key) => {
+          Object.keys(tabButtons).forEach((k) => {
+            tabButtons[k].classList.toggle("active", k === key);
+            tabButtons[k].setAttribute("aria-selected", k === key ? "true" : "false");
+          });
+          const items = key === "all" ? allItems : expand(key);
+          gridWrap.innerHTML = "";
+          gridWrap.appendChild(buildGrid(items));
+        };
+
+        tabKeys.forEach((key) => {
+          tabButtons[key].addEventListener("click", () => showCategory(key));
+        });
+
+        // Default view: "all"
+        showCategory("all");
+      })
+      .catch((err) => {
+        root.innerHTML = `<p class="gallery-error">Could not load photos (${err.message}). Please try refreshing.</p>`;
+      });
+  })();
 
   const revealElements = document.querySelectorAll("[data-reveal]");
   if (revealElements.length && "IntersectionObserver" in window) {

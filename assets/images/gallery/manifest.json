@@ -1,0 +1,289 @@
+{
+  "campus": [
+    {
+      "slug": "campus-view-1",
+      "alt": "Main school building from the front"
+    },
+    {
+      "slug": "campus-view-2",
+      "alt": "Wide view of the campus"
+    },
+    {
+      "slug": "campus-view-3",
+      "alt": "Campus grounds"
+    },
+    {
+      "slug": "campus-view-4",
+      "alt": "Campus courtyard"
+    },
+    {
+      "slug": "campus-view-5",
+      "alt": "Campus entrance area"
+    },
+    {
+      "slug": "campus-aerial-drone",
+      "alt": "Aerial drone view of the school buses"
+    },
+    {
+      "slug": "campus-view-6",
+      "alt": "School buses in the central courtyard"
+    },
+    {
+      "slug": "campus-view-7",
+      "alt": "Campus with solar panels and buses"
+    },
+    {
+      "slug": "campus-sports-day",
+      "alt": "Campus view during sports day"
+    }
+  ],
+  "sports": [
+    {
+      "slug": "sports-day-1",
+      "alt": "Sports day main event"
+    },
+    {
+      "slug": "sports-day-kids-1",
+      "alt": "Kids participating in sports day"
+    },
+    {
+      "slug": "sports-award",
+      "alt": "Sports award ceremony"
+    },
+    {
+      "slug": "badminton-1",
+      "alt": "Badminton match"
+    },
+    {
+      "slug": "badminton-2",
+      "alt": "Students playing badminton"
+    },
+    {
+      "slug": "basketball",
+      "alt": "Basketball game"
+    },
+    {
+      "slug": "chess",
+      "alt": "Chess tournament"
+    },
+    {
+      "slug": "high-jump",
+      "alt": "High jump event"
+    },
+    {
+      "slug": "kho-kho-1",
+      "alt": "Kho kho match"
+    },
+    {
+      "slug": "kho-kho-2",
+      "alt": "Students playing kho kho"
+    },
+    {
+      "slug": "sports-day-kids-2",
+      "alt": "Children at the sports day"
+    },
+    {
+      "slug": "sports-day-running",
+      "alt": "Running race on sports day"
+    },
+    {
+      "slug": "volleyball-1",
+      "alt": "Volleyball match"
+    },
+    {
+      "slug": "volleyball-2",
+      "alt": "Volleyball game action"
+    },
+    {
+      "slug": "volleyball-3",
+      "alt": "Volleyball tournament"
+    }
+  ],
+  "cultural": [
+    {
+      "slug": "janmashtami-celebration",
+      "alt": "Janmashtami celebration at school"
+    },
+    {
+      "slug": "summer-camp",
+      "alt": "Summer camp activities"
+    },
+    {
+      "slug": "celebration",
+      "alt": "School celebration"
+    },
+    {
+      "slug": "cultural-program-1",
+      "alt": "Cultural program"
+    },
+    {
+      "slug": "cultural-program-2",
+      "alt": "Students performing"
+    },
+    {
+      "slug": "cultural-program-3",
+      "alt": "Cultural event"
+    },
+    {
+      "slug": "cultural-program-4",
+      "alt": "Dance performance"
+    },
+    {
+      "slug": "cultural-program-5",
+      "alt": "Cultural festival"
+    },
+    {
+      "slug": "cultural-program-6",
+      "alt": "School cultural day"
+    },
+    {
+      "slug": "cultural-program-7",
+      "alt": "Annual cultural program"
+    },
+    {
+      "slug": "morning-prayer",
+      "alt": "Morning prayer assembly"
+    },
+    {
+      "slug": "saraswati-puja-1",
+      "alt": "Saraswati Puja ceremony"
+    },
+    {
+      "slug": "saraswati-puja-2",
+      "alt": "Saraswati Puja 2022"
+    },
+    {
+      "slug": "saraswati-puja-3",
+      "alt": "Saraswati Puja rituals"
+    },
+    {
+      "slug": "saraswati-puja-4",
+      "alt": "Saraswati Puja at school"
+    },
+    {
+      "slug": "saraswati-puja-5",
+      "alt": "Saraswati Puja gathering"
+    }
+  ],
+  "academic": [
+    {
+      "slug": "students-group",
+      "alt": "Students of the school"
+    },
+    {
+      "slug": "book-fair",
+      "alt": "School book fair"
+    },
+    {
+      "slug": "class-12-science",
+      "alt": "Class 12 Science group photo"
+    },
+    {
+      "slug": "debate-competition-1",
+      "alt": "Debate competition"
+    },
+    {
+      "slug": "debate-competition-2",
+      "alt": "Students debating"
+    },
+    {
+      "slug": "debate-competition-poster",
+      "alt": "Debate competition poster"
+    },
+    {
+      "slug": "model-exhibition",
+      "alt": "Student model exhibition"
+    },
+    {
+      "slug": "science-exhibition-1",
+      "alt": "Science exhibition"
+    },
+    {
+      "slug": "science-exhibition-2",
+      "alt": "Science exhibition projects"
+    },
+    {
+      "slug": "science-exhibition-3",
+      "alt": "Science fair"
+    },
+    {
+      "slug": "science-exhibition-4",
+      "alt": "Student science projects"
+    }
+  ],
+  "events": [
+    {
+      "slug": "childrens-day-1",
+      "alt": "Children's Day 14 November"
+    },
+    {
+      "slug": "award-1",
+      "alt": "Award ceremony"
+    },
+    {
+      "slug": "award-2",
+      "alt": "Student receiving award"
+    },
+    {
+      "slug": "award-3",
+      "alt": "Prize distribution"
+    },
+    {
+      "slug": "award-4",
+      "alt": "Academic award"
+    },
+    {
+      "slug": "award-5",
+      "alt": "Awards event"
+    },
+    {
+      "slug": "childrens-day-2",
+      "alt": "Children's Day celebration"
+    },
+    {
+      "slug": "childrens-day-fair",
+      "alt": "Children's Day fair"
+    },
+    {
+      "slug": "farewell-1",
+      "alt": "Farewell ceremony"
+    },
+    {
+      "slug": "farewell-party",
+      "alt": "Farewell party"
+    },
+    {
+      "slug": "farewell-welcome-1",
+      "alt": "Farewell and welcome"
+    },
+    {
+      "slug": "farewell-welcome-2",
+      "alt": "Welcome ceremony for juniors"
+    },
+    {
+      "slug": "parade-1",
+      "alt": "School parade"
+    },
+    {
+      "slug": "republic-day-parade-1",
+      "alt": "Republic Day parade"
+    },
+    {
+      "slug": "republic-day-parade-2",
+      "alt": "Republic Day 2025"
+    },
+    {
+      "slug": "welcome-1",
+      "alt": "Welcome ceremony"
+    },
+    {
+      "slug": "welcome-2",
+      "alt": "Welcome event"
+    },
+    {
+      "slug": "welcome-3",
+      "alt": "Fresher welcome"
+    }
+  ],
+  "staff": []
+}

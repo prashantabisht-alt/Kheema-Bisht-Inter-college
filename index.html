@@ -24,7 +24,9 @@
   <link rel="canonical" href="https://kheemabishtintercollege.in/" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
-  <link rel="icon" href="assets/images/school-logo.png" type="image/png" />
+  <link rel="icon" href="assets/images/brand/logo-192.png" type="image/png" sizes="192x192" />
+  <link rel="preload" as="image" href="assets/images/hero/campus-hero.jpg" media="(min-width: 721px)" />
+  <link rel="preload" as="image" href="assets/images/hero/campus-hero-mobile.jpg" media="(max-width: 720px)" />
   <!-- Google Analytics (replace G-XXXXXXXXXX with your GA4 Measurement ID) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
@@ -61,7 +63,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="assets/images/school-logo.png" alt="Kheema Bisht Inter College Logo" loading="lazy" style="height:40px;width:40px;border-radius:50%;object-fit:cover;margin-right:8px;" onerror="this.style.display='none'" />
+        <img src="assets/images/brand/logo.png" alt="Kheema Bisht Inter College Logo" loading="eager" style="height:44px;width:44px;object-fit:contain;margin-right:10px;" onerror="this.style.display='none'" />
         <span>
           <strong class="js-school-name">Kheema Bisht Inter College</strong>
           <small class="js-tagline">Excellence in Learning, Character, and Leadership</small>
@@ -74,6 +76,7 @@
         <a href="pages/academics.html">Academics</a>
         <a href="pages/admissions.html">Admissions</a>
         <a href="pages/facilities.html">Facilities</a>
+        <a href="pages/staff.html">Staff</a>
         <a href="pages/gallery.html">Gallery</a>
         <a href="pages/news.html">News</a>
         <a href="pages/contact.html">Contact</a>
@@ -91,7 +94,7 @@
   </div>
 
   <main>
-    <section class="hero">
+    <section class="hero hero-with-bg">
       <div class="container hero-grid">
         <article class="hero-card" data-reveal>
           <span class="badge">Admissions Open 2026-27</span>
