@@ -21,7 +21,6 @@ window.SITE_CONFIG = {
   counters: {
     students: 1800,
     faculty: 95,
-    achievements: 120,
     years: 25
   },
   images: {
