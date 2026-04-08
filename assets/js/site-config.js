@@ -41,7 +41,7 @@ window.SITE_CONFIG = {
       bio: "Leads with over two decades of experience in school education, focusing on strong academic foundations and student character development."
     },
     manager: {
-      name: "Manager",
+      name: "Mr. Raghubar Singh",
       title: "Manager",
       image: "/assets/images/portraits/manager.jpg",
       bio: "Oversees school operations, infrastructure, and long-term growth planning to support every student's learning journey."
