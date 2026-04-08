@@ -626,7 +626,10 @@
 
     if (selector === "#admission-form") {
       setHidden("_next", getSuccessUrl());
-      setHidden("_subject", `${cfg.schoolName || "School"} Admission Lead`);
+      setHidden("_subject", `[Admission Lead] ${cfg.schoolName || "School"} — new inquiry`);
+    }
+    if (selector === "#contact-form") {
+      setHidden("_subject", `[Contact] ${cfg.schoolName || "School"} — website message`);
     }
 
     form.addEventListener("submit", (event) => {

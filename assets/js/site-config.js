@@ -11,8 +11,8 @@ window.SITE_CONFIG = {
   facebookUrl: "https://www.facebook.com/kheema.bisht.1401/",
   instagramUrl: "https://www.instagram.com/kheema_bisht_s_m_i_c/",
   youtubeUrl: "https://www.youtube.com/@kheemabishtintercollegegau5477",
-  admissionFormEndpoint: "https://formspree.io/f/your-admission-form-id",
-  contactFormEndpoint: "https://formspree.io/f/your-contact-form-id",
+  admissionFormEndpoint: "https://formspree.io/f/mbdpbaqo",
+  contactFormEndpoint: "https://formspree.io/f/mbdpbaqo",
   announcements: [
     "Admissions open for session 2026-27",
     "Campus tour available every Saturday",
