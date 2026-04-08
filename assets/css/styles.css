@@ -800,11 +800,31 @@ select:focus-visible,
   color: #fff;
 }
 .hero-with-bg .hero-card .btn-outline {
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.75);
 }
 .hero-with-bg .hero-card .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+/* Quick Information card links: brand blue is too dark on the translucent
+   hero card. Force light color so they stay legible against the overlay. */
+.hero-with-bg .hero-card a,
+.hero-with-bg .hero-card .js-email-link,
+.hero-with-bg .hero-card .js-phone-link,
+.hero-with-bg .hero-card .js-whatsapp-link {
+  color: #e8f1ff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  text-underline-offset: 2px;
+}
+.hero-with-bg .hero-card a:hover {
+  color: #fff;
+  text-decoration-color: #fff;
+}
+.hero-with-bg .hero-card strong {
+  color: #fff;
 }
 @media (max-width: 720px) {
   .hero-with-bg {
