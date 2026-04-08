@@ -1,0 +1,12 @@
+# macOS junk
+.DS_Store
+*.DS_Store
+
+# Netlify CLI state
+.netlify/
+
+# Local raw photo dump (not part of the live site)
+kheema_bisht_website/
+
+# Deploy artifacts created by netlify-mcp
+deploy-*.zip
