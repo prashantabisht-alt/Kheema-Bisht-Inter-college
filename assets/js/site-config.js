@@ -15,7 +15,7 @@ window.SITE_CONFIG = {
   contactFormEndpoint: "https://formspree.io/f/mbdpbaqo",
   announcements: [
     "Admissions open for session 2026-27",
-    "Campus tour available every Saturday",
+    "Walk in any working day, 9 AM – 1 PM — no appointment needed",
     "Scholarship guidance desk now active"
   ],
   counters: {
