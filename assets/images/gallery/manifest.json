@@ -2,283 +2,283 @@
   "campus": [
     {
       "slug": "campus-view-1",
-      "alt": "Main school building from the front"
+      "alt": "Golden sunrise over the U-shaped school building and central courtyard"
     },
     {
       "slug": "campus-view-2",
-      "alt": "Wide view of the campus"
+      "alt": "School buses lined up in formation in the central courtyard"
     },
     {
       "slug": "campus-view-3",
-      "alt": "Campus grounds"
+      "alt": "Wide panoramic view of the campus at dusk, with the Shivalik foothills on the horizon"
     },
     {
       "slug": "campus-view-4",
-      "alt": "Campus courtyard"
+      "alt": "Sunrise over the quadrangle as buses sit parked before the school day begins"
     },
     {
       "slug": "campus-view-5",
-      "alt": "Campus entrance area"
+      "alt": "Golden-hour view of the quadrangle, classrooms and open fields beyond"
     },
     {
       "slug": "campus-aerial-drone",
-      "alt": "Aerial drone view of the school buses"
-    },
-    {
-      "slug": "campus-view-6",
-      "alt": "School buses in the central courtyard"
-    },
-    {
-      "slug": "campus-view-7",
-      "alt": "Campus with solar panels and buses"
+      "alt": "Aerial drone view of KBIC showing the full campus, courtyard and bus fleet"
     },
     {
       "slug": "campus-sports-day",
-      "alt": "Campus view during sports day"
+      "alt": "The full campus decked out and ready on the morning of Sports Day"
     }
   ],
   "sports": [
     {
       "slug": "sports-day-1",
-      "alt": "Sports day main event"
+      "alt": "Students taking position on the track for a novelty race on Sports Day"
     },
     {
       "slug": "sports-day-kids-1",
-      "alt": "Kids participating in sports day"
-    },
-    {
-      "slug": "sports-award",
-      "alt": "Sports award ceremony"
-    },
-    {
-      "slug": "badminton-1",
-      "alt": "Badminton match"
-    },
-    {
-      "slug": "badminton-2",
-      "alt": "Students playing badminton"
-    },
-    {
-      "slug": "basketball",
-      "alt": "Basketball game"
-    },
-    {
-      "slug": "chess",
-      "alt": "Chess tournament"
-    },
-    {
-      "slug": "high-jump",
-      "alt": "High jump event"
-    },
-    {
-      "slug": "kho-kho-1",
-      "alt": "Kho kho match"
-    },
-    {
-      "slug": "kho-kho-2",
-      "alt": "Students playing kho kho"
-    },
-    {
-      "slug": "sports-day-kids-2",
-      "alt": "Children at the sports day"
+      "alt": "Tiny tots lined up for their first-ever Sports Day race"
     },
     {
       "slug": "sports-day-running",
-      "alt": "Running race on sports day"
+      "alt": "Senior students sprinting full speed in the 100-metre final"
+    },
+    {
+      "slug": "sports-day-kids-2",
+      "alt": "Junior section cheering on their classmates at Kids Sports Day"
+    },
+    {
+      "slug": "sports-award",
+      "alt": "Young winners with their medals and trophies at the Sports Day prize ceremony"
+    },
+    {
+      "slug": "high-jump",
+      "alt": "Athlete clearing the bar in the high-jump event"
+    },
+    {
+      "slug": "badminton-1",
+      "alt": "Singles badminton match on the school court"
+    },
+    {
+      "slug": "badminton-2",
+      "alt": "Students playing doubles badminton during the sports period"
+    },
+    {
+      "slug": "basketball",
+      "alt": "Basketball game in progress on the campus court"
     },
     {
       "slug": "volleyball-2",
-      "alt": "Volleyball game action"
+      "alt": "Volleyball match during the inter-house tournament"
     },
     {
       "slug": "volleyball-3",
-      "alt": "Volleyball tournament"
+      "alt": "Senior students competing in the volleyball final"
+    },
+    {
+      "slug": "kho-kho-1",
+      "alt": "Fast-paced kho-kho match on the school ground"
+    },
+    {
+      "slug": "kho-kho-2",
+      "alt": "Girls' kho-kho team in action during a practice match"
+    },
+    {
+      "slug": "chess",
+      "alt": "Students concentrating during the school chess tournament"
     }
   ],
   "cultural": [
     {
-      "slug": "janmashtami-celebration",
-      "alt": "Janmashtami celebration at school"
-    },
-    {
-      "slug": "summer-camp",
-      "alt": "Summer camp activities"
-    },
-    {
-      "slug": "celebration",
-      "alt": "School celebration"
-    },
-    {
-      "slug": "cultural-program-1",
-      "alt": "Cultural program"
-    },
-    {
-      "slug": "cultural-program-2",
-      "alt": "Students performing"
-    },
-    {
-      "slug": "cultural-program-3",
-      "alt": "Cultural event"
-    },
-    {
-      "slug": "cultural-program-4",
-      "alt": "Dance performance"
-    },
-    {
-      "slug": "cultural-program-5",
-      "alt": "Cultural festival"
-    },
-    {
-      "slug": "cultural-program-6",
-      "alt": "School cultural day"
-    },
-    {
-      "slug": "cultural-program-7",
-      "alt": "Annual cultural program"
-    },
-    {
       "slug": "morning-prayer",
-      "alt": "Morning prayer assembly"
+      "alt": "Morning prayer assembly in the central quadrangle before classes begin"
     },
     {
       "slug": "saraswati-puja-1",
-      "alt": "Saraswati Puja ceremony"
+      "alt": "Saraswati Puja on Basant Panchami: students offering flowers to the goddess of learning"
     },
     {
       "slug": "saraswati-puja-2",
-      "alt": "Saraswati Puja 2022"
+      "alt": "Aarti being performed before the Saraswati idol, with teachers and students gathered"
     },
     {
       "slug": "saraswati-puja-3",
-      "alt": "Saraswati Puja rituals"
+      "alt": "Traditional offerings placed at the feet of Saraswati on puja day"
     },
     {
       "slug": "saraswati-puja-4",
-      "alt": "Saraswati Puja at school"
+      "alt": "Students in white and yellow attire seated for the Saraswati Puja prayers"
     },
     {
       "slug": "saraswati-puja-5",
-      "alt": "Saraswati Puja gathering"
+      "alt": "Full school gathering during the annual Saraswati Puja celebration"
+    },
+    {
+      "slug": "janmashtami-celebration",
+      "alt": "Janmashtami celebration with young students dressed as Krishna and Radha"
+    },
+    {
+      "slug": "holi-celebration",
+      "alt": "The entire school courtyard filled with students playing Holi together in bright colours"
+    },
+    {
+      "slug": "summer-camp",
+      "alt": "Students at the annual KBIC summer learning and activity camp"
+    },
+    {
+      "slug": "celebration",
+      "alt": "Students forming a dandiya-style group dance in the courtyard during a festival celebration"
+    },
+    {
+      "slug": "cultural-program-1",
+      "alt": "Girls performing a traditional folk dance in ghaghra-choli on the decorated cultural-day stage"
+    },
+    {
+      "slug": "cultural-program-2",
+      "alt": "Group dance performance by senior students at the annual cultural day"
+    },
+    {
+      "slug": "cultural-program-3",
+      "alt": "Students in traditional attire presenting a classical dance item on stage"
+    },
+    {
+      "slug": "cultural-program-4",
+      "alt": "Folk dance performance by students during the annual cultural programme"
+    },
+    {
+      "slug": "cultural-program-5",
+      "alt": "Junior students performing a song-and-dance number at the cultural evening"
+    },
+    {
+      "slug": "cultural-program-6",
+      "alt": "Full cast on stage during a student-led skit at the cultural programme"
+    },
+    {
+      "slug": "cultural-program-7",
+      "alt": "Closing dance performance at the annual KBIC cultural day"
     }
   ],
   "academic": [
     {
-      "slug": "students-group",
-      "alt": "Students of the school"
+      "slug": "smart-class-teaching",
+      "alt": "A teacher explaining a lesson on the projected smart-class screen to an attentive classroom"
     },
     {
-      "slug": "book-fair",
-      "alt": "School book fair"
+      "slug": "students-group",
+      "alt": "Students of KBIC gathered together in school uniform"
     },
     {
       "slug": "class-12-science",
-      "alt": "Class 12 Science group photo"
+      "alt": "Class XII Science batch group photograph with their subject teachers"
     },
     {
-      "slug": "debate-competition-1",
-      "alt": "Debate competition"
-    },
-    {
-      "slug": "debate-competition-2",
-      "alt": "Students debating"
-    },
-    {
-      "slug": "debate-competition-poster",
-      "alt": "Debate competition poster"
-    },
-    {
-      "slug": "model-exhibition",
-      "alt": "Student model exhibition"
+      "slug": "book-fair",
+      "alt": "Students browsing titles at the annual school book fair"
     },
     {
       "slug": "science-exhibition-1",
-      "alt": "Science exhibition"
+      "alt": "Working student science model on display at the KBIC science exhibition"
     },
     {
       "slug": "science-exhibition-2",
-      "alt": "Science exhibition projects"
+      "alt": "Student explaining his project to visitors during the science fair"
     },
     {
       "slug": "science-exhibition-3",
-      "alt": "Science fair"
+      "alt": "Wide view of the exhibition hall filled with student science projects"
     },
     {
       "slug": "science-exhibition-4",
-      "alt": "Student science projects"
+      "alt": "Group of senior students with their physics and chemistry models"
+    },
+    {
+      "slug": "model-exhibition",
+      "alt": "Creative working models at the annual student exhibition"
+    },
+    {
+      "slug": "debate-competition-1",
+      "alt": "Student speaking at the inter-house debate competition"
+    },
+    {
+      "slug": "debate-competition-2",
+      "alt": "Panel of judges and debaters during the school debate competition"
+    },
+    {
+      "slug": "debate-competition-poster",
+      "alt": "Official poster announcing the inter-school debate competition at KBIC"
     }
   ],
   "events": [
     {
       "slug": "childrens-day-1",
-      "alt": "Children's Day 14 November"
-    },
-    {
-      "slug": "award-1",
-      "alt": "Award ceremony"
-    },
-    {
-      "slug": "award-2",
-      "alt": "Student receiving award"
-    },
-    {
-      "slug": "award-3",
-      "alt": "Prize distribution"
-    },
-    {
-      "slug": "award-4",
-      "alt": "Academic award"
-    },
-    {
-      "slug": "award-5",
-      "alt": "Awards event"
+      "alt": "14 November Children's Day celebration gathering the whole school together"
     },
     {
       "slug": "childrens-day-2",
-      "alt": "Children's Day celebration"
+      "alt": "Children's Day programme with games, songs and treats for every student"
     },
     {
       "slug": "childrens-day-fair",
-      "alt": "Children's Day fair"
-    },
-    {
-      "slug": "farewell-1",
-      "alt": "Farewell ceremony"
-    },
-    {
-      "slug": "farewell-party",
-      "alt": "Farewell party"
-    },
-    {
-      "slug": "farewell-welcome-1",
-      "alt": "Farewell and welcome"
-    },
-    {
-      "slug": "farewell-welcome-2",
-      "alt": "Welcome ceremony for juniors"
+      "alt": "Fun fair and activity stalls set up in the courtyard for Children's Day"
     },
     {
       "slug": "parade-1",
-      "alt": "School parade"
+      "alt": "School parade with student formations marching past the flag"
     },
     {
       "slug": "republic-day-parade-1",
-      "alt": "Republic Day parade"
+      "alt": "Republic Day parade with student contingents and the national tricolour"
     },
     {
       "slug": "republic-day-parade-2",
-      "alt": "Republic Day 2025"
+      "alt": "Flag hoisting ceremony on 26 January 2025 Republic Day"
     },
     {
       "slug": "welcome-1",
-      "alt": "Welcome ceremony"
+      "alt": "Ribbon-cutting ceremony with nursery and primary students welcomed by teachers"
     },
     {
       "slug": "welcome-2",
-      "alt": "Welcome event"
+      "alt": "Senior students welcoming new juniors with tilak and garlands at the start of session"
     },
     {
       "slug": "welcome-3",
-      "alt": "Fresher welcome"
+      "alt": "Fresher welcome programme with the principal and class teachers"
+    },
+    {
+      "slug": "farewell-welcome-1",
+      "alt": "Joint farewell-and-welcome ceremony for outgoing Class XII and incoming batch"
+    },
+    {
+      "slug": "farewell-welcome-2",
+      "alt": "Junior students bidding farewell to the outgoing Class XII batch"
+    },
+    {
+      "slug": "farewell-1",
+      "alt": "Class XII students in formal farewell attire at the ribbon-cutting ceremony"
+    },
+    {
+      "slug": "farewell-party",
+      "alt": "Cake cutting at the Class XII farewell party celebration"
+    },
+    {
+      "slug": "award-1",
+      "alt": "Junior section prize distribution: young winners holding trophies and shields on stage"
+    },
+    {
+      "slug": "award-2",
+      "alt": "Top scorer being felicitated by the principal at the annual awards"
+    },
+    {
+      "slug": "award-3",
+      "alt": "Prize distribution recognising academic and co-curricular achievements"
+    },
+    {
+      "slug": "award-4",
+      "alt": "Junior student receiving a trophy at the prize distribution ceremony"
+    },
+    {
+      "slug": "award-5",
+      "alt": "Group photograph of medal and trophy winners at the annual awards day"
     }
   ],
   "staff": []
