@@ -47,12 +47,52 @@
 
   <main>
     <section class="section">
-      <div class="container card" data-reveal>
-        <h1 data-i18n="successTitle">Admission Inquiry Submitted</h1>
-        <p data-i18n="successSubtitle">Thank you for your interest. Our admissions team will contact you soon.</p>
-        <div class="button-row">
-          <a class="btn btn-primary" href="../index.html" data-i18n="backHome">Back to Home</a>
-          <a class="btn btn-outline" href="admissions.html" data-i18n="viewAdmissions">View Admissions</a>
+      <div class="container card" data-reveal style="max-width:720px;">
+        <div class="success-hero">
+          <div class="success-check" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h1 data-i18n="successTitle" style="margin:6px 0 8px;">Inquiry Received &mdash; Welcome to the KBIC Family</h1>
+          <p data-i18n="successSubtitle" style="max-width:520px;margin:0 auto;color:var(--muted);">
+            Thank you for reaching out. Our admissions office has your details and will personally contact you within 24 hours on school days.
+          </p>
+        </div>
+
+        <div class="success-timeline">
+          <div class="success-timeline-step">
+            <div class="success-timeline-num">1</div>
+            <div class="success-timeline-body">
+              <h4>We call or WhatsApp you</h4>
+              <p>Within 24 hours on school days, our admissions team will reach out on the number you shared to answer your questions and suggest the best time to visit.</p>
+            </div>
+          </div>
+          <div class="success-timeline-step">
+            <div class="success-timeline-num">2</div>
+            <div class="success-timeline-body">
+              <h4>Visit the campus</h4>
+              <p>Walk in any working day between 9 AM and 1 PM. Meet the teachers, see the classrooms, and get every question answered in person &mdash; no appointment needed.</p>
+            </div>
+          </div>
+          <div class="success-timeline-step">
+            <div class="success-timeline-num">3</div>
+            <div class="success-timeline-body">
+              <h4>Bring a few documents</h4>
+              <p>Previous report card, parent ID, and 2 passport-size photos of the student. That's it &mdash; no birth certificate required.</p>
+            </div>
+          </div>
+          <div class="success-timeline-step">
+            <div class="success-timeline-num">4</div>
+            <div class="success-timeline-body">
+              <h4>Collect the welcome kit</h4>
+              <p>Once the seat is confirmed, your child officially joins the KBIC family. Our office team will walk you through timings, transport, and everything else in person.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-contact-row">
+          <a class="btn btn-primary js-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+          <a class="btn btn-outline" href="contact.html#map">Get Directions</a>
+          <a class="btn btn-outline" href="../index.html" data-i18n="backHome">Back to Home</a>
         </div>
       </div>
     </section>

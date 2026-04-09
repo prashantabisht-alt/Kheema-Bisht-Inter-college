@@ -1199,4 +1199,296 @@
       })
       .catch(() => {});
   }
+
+  // ====================================================================
+  // Ken-burns hero background — inject an animated .hero-bg-image element
+  // ====================================================================
+  (function setupKenBurnsHero() {
+    const hero = document.querySelector(".hero-with-bg");
+    if (!hero) return;
+    if (hero.querySelector(".hero-bg-image")) return;
+    const bg = document.createElement("div");
+    bg.className = "hero-bg-image";
+    bg.setAttribute("aria-hidden", "true");
+    hero.insertBefore(bg, hero.firstChild);
+  })();
+
+  // ====================================================================
+  // Hero decorative floating particles (subtle gold motes drifting up)
+  // ====================================================================
+  (function setupHeroParticles() {
+    const hero = document.querySelector(".hero-with-bg");
+    if (!hero) return;
+    if (hero.querySelector(".hero-particles")) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const wrap = document.createElement("div");
+    wrap.className = "hero-particles";
+    wrap.setAttribute("aria-hidden", "true");
+    for (let i = 0; i < 10; i++) {
+      const p = document.createElement("span");
+      p.className = "hero-particle";
+      wrap.appendChild(p);
+    }
+    hero.appendChild(wrap);
+  })();
+
+  // ====================================================================
+  // Testimonial carousel — progressively enhance .testimonial-grid
+  // Auto-rotates, dot indicators, prev/next arrows, swipe on touch.
+  // ====================================================================
+  (function setupTestimonialCarousel() {
+    const grid = document.querySelector(".testimonial-grid");
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll(".card"));
+    if (cards.length < 2) return;
+
+    // Build structure
+    const carousel = document.createElement("div");
+    carousel.className = "testimonial-carousel";
+    const track = document.createElement("div");
+    track.className = "testimonial-carousel-track";
+    const viewport = document.createElement("div");
+    viewport.className = "testimonial-carousel-viewport";
+    cards.forEach((c) => viewport.appendChild(c));
+    track.appendChild(viewport);
+    carousel.appendChild(track);
+
+    // Arrow buttons
+    const mkBtn = (dir, label, iconPath) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "testimonial-carousel-btn " + dir;
+      b.setAttribute("aria-label", label);
+      b.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="${iconPath}"/></svg>`;
+      return b;
+    };
+    const prevBtn = mkBtn("prev", "Previous testimonial", "m15 18-6-6 6-6");
+    const nextBtn = mkBtn("next", "Next testimonial", "m9 18 6-6-6-6");
+    carousel.appendChild(prevBtn);
+    carousel.appendChild(nextBtn);
+
+    // Dot indicators
+    const dotsWrap = document.createElement("div");
+    dotsWrap.className = "testimonial-carousel-dots";
+    dotsWrap.setAttribute("role", "tablist");
+    const dots = cards.map((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "testimonial-carousel-dot";
+      d.setAttribute("aria-label", `Show testimonial ${i + 1}`);
+      dotsWrap.appendChild(d);
+      return d;
+    });
+    carousel.appendChild(dotsWrap);
+
+    // Replace the grid with the carousel
+    grid.parentNode.replaceChild(carousel, grid);
+
+    // State + navigation
+    let index = 0;
+    let autoTimer = null;
+    const AUTO_MS = 6000;
+    const go = (n) => {
+      index = (n + cards.length) % cards.length;
+      viewport.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+    };
+    const next = () => go(index + 1);
+    const prev = () => go(index - 1);
+
+    prevBtn.addEventListener("click", () => { prev(); restartAuto(); });
+    nextBtn.addEventListener("click", () => { next(); restartAuto(); });
+    dots.forEach((d, i) => d.addEventListener("click", () => { go(i); restartAuto(); }));
+
+    const startAuto = () => { autoTimer = setInterval(next, AUTO_MS); };
+    const stopAuto = () => { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } };
+    const restartAuto = () => { stopAuto(); startAuto(); };
+
+    carousel.addEventListener("mouseenter", stopAuto);
+    carousel.addEventListener("mouseleave", startAuto);
+
+    // Touch swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    viewport.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAuto();
+    }, { passive: true });
+    viewport.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const delta = touchEndX - touchStartX;
+      if (Math.abs(delta) > 40) {
+        if (delta < 0) next(); else prev();
+      }
+      startAuto();
+    }, { passive: true });
+
+    // Keyboard nav when carousel has focus
+    carousel.tabIndex = 0;
+    carousel.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft")  { prev(); restartAuto(); }
+      if (e.key === "ArrowRight") { next(); restartAuto(); }
+    });
+
+    // Init
+    go(0);
+    startAuto();
+  })();
+
+  // ====================================================================
+  // PWA install prompt (Add to Home Screen banner)
+  // Only shows on supported browsers, dismissible, remembers dismissal.
+  // ====================================================================
+  (function setupPWAInstallPrompt() {
+    const DISMISS_KEY = "kbic_pwa_dismissed_v1";
+    try {
+      if (localStorage.getItem(DISMISS_KEY)) return;
+    } catch (_) { /* localStorage blocked — continue */ }
+
+    let deferredPrompt = null;
+    const showBanner = () => {
+      if (document.querySelector(".pwa-install-banner")) return;
+      const b = document.createElement("div");
+      b.className = "pwa-install-banner";
+      b.setAttribute("role", "dialog");
+      b.setAttribute("aria-label", "Install this site as an app");
+      b.innerHTML = `
+        <img src="${window.location.pathname.includes("/pages/") ? "../" : ""}assets/images/brand/logo-192.png" alt="" />
+        <div class="pwa-install-banner-text">
+          <p class="pwa-install-banner-title">Install Kheema Bisht Inter College</p>
+          <p class="pwa-install-banner-sub">Quick access from your home screen — works even offline.</p>
+        </div>
+        <div class="pwa-install-banner-actions">
+          <button type="button" class="pwa-install-btn">Install</button>
+          <button type="button" class="pwa-install-dismiss" aria-label="Dismiss">&times;</button>
+        </div>
+      `;
+      document.body.appendChild(b);
+      requestAnimationFrame(() => b.classList.add("is-visible"));
+
+      const hide = (dismissed) => {
+        b.classList.remove("is-visible");
+        setTimeout(() => b.remove(), 500);
+        if (dismissed) {
+          try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch (_) {}
+        }
+      };
+
+      b.querySelector(".pwa-install-btn").addEventListener("click", async () => {
+        if (!deferredPrompt) { hide(true); return; }
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        trackEvent("pwa_install_prompt", { outcome: choice.outcome });
+        deferredPrompt = null;
+        hide(true);
+      });
+      b.querySelector(".pwa-install-dismiss").addEventListener("click", () => {
+        trackEvent("pwa_install_prompt", { outcome: "dismissed" });
+        hide(true);
+      });
+    };
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      // Wait 25 seconds so we don't nag immediately on page load
+      setTimeout(showBanner, 25000);
+    });
+
+    window.addEventListener("appinstalled", () => {
+      trackEvent("pwa_installed");
+      try { localStorage.setItem(DISMISS_KEY, "installed"); } catch (_) {}
+    });
+  })();
+
+  // ====================================================================
+  // WhatsApp quick-reply popup — replaces simple float button behaviour
+  // Click the floating WA button → opens popup with pre-filled options
+  // ====================================================================
+  (function setupWhatsAppQuickReply() {
+    const float = document.querySelector(".whatsapp-float");
+    if (!float) return;
+    if (document.querySelector(".whatsapp-popup")) return;
+
+    const rawNumber = (cfg.whatsappNumber || "").replace(/\D/g, "");
+    if (!rawNumber) return;
+    const intl = rawNumber.length === 10 ? "91" + rawNumber : rawNumber;
+    const waUrl = (text) => `https://wa.me/${intl}?text=${encodeURIComponent(text)}`;
+
+    const QUICK_REPLIES = [
+      { label: "Admission info for my child",  msg: "Hello, I want admission information for my child." },
+      { label: "Schedule a campus visit",       msg: "Hello, I would like to visit the campus. When is a good time?" },
+      { label: "Fee details & payment options", msg: "Hello, can you share the fee details and payment options?" },
+      { label: "Transport / school bus routes", msg: "Hello, does your school bus serve my area? Please share route details." },
+      { label: "Something else",                msg: "Hello, I have a question about Kheema Bisht Inter College." }
+    ];
+
+    const popup = document.createElement("div");
+    popup.className = "whatsapp-popup";
+    popup.setAttribute("role", "dialog");
+    popup.setAttribute("aria-label", "WhatsApp quick reply");
+    popup.innerHTML = `
+      <div class="whatsapp-popup-header">
+        <div class="whatsapp-popup-header-avatar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+          </svg>
+        </div>
+        <div class="whatsapp-popup-header-text">
+          <p class="whatsapp-popup-header-title">KBIC Admissions</p>
+          <p class="whatsapp-popup-header-sub">Usually replies within 1 hour</p>
+        </div>
+        <button type="button" class="whatsapp-popup-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="whatsapp-popup-body">
+        <div class="whatsapp-popup-greeting">
+          <strong>Namaste!</strong> How can we help you today? Tap any option below to start a WhatsApp chat with our admissions team.
+        </div>
+        <div class="whatsapp-popup-actions"></div>
+      </div>
+    `;
+    const actionsWrap = popup.querySelector(".whatsapp-popup-actions");
+    QUICK_REPLIES.forEach((r) => {
+      const a = document.createElement("a");
+      a.className = "whatsapp-quick-reply";
+      a.href = waUrl(r.msg);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = r.label;
+      a.addEventListener("click", () => {
+        trackEvent("whatsapp_quick_reply", { option: r.label });
+      });
+      actionsWrap.appendChild(a);
+    });
+    document.body.appendChild(popup);
+
+    // Intercept the float click → toggle popup instead of going straight to WA
+    // (Keep the existing href as a fallback for no-JS / screen reader users)
+    const togglePopup = (open) => {
+      popup.classList.toggle("is-open", open);
+    };
+
+    float.addEventListener("click", (e) => {
+      e.preventDefault();
+      const willOpen = !popup.classList.contains("is-open");
+      togglePopup(willOpen);
+      if (willOpen) {
+        trackEvent("whatsapp_popup_open", { page_path: window.location.pathname });
+      }
+    });
+
+    popup.querySelector(".whatsapp-popup-close").addEventListener("click", () => togglePopup(false));
+
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+      if (!popup.classList.contains("is-open")) return;
+      if (popup.contains(e.target) || float.contains(e.target)) return;
+      togglePopup(false);
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && popup.classList.contains("is-open")) togglePopup(false);
+    });
+  })();
 })();
