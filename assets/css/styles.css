@@ -479,6 +479,84 @@ p { line-height: 1.7; color: var(--muted); }
 .card h3 { margin-top: 0; margin-bottom: 10px; }
 .card p { margin: 0; }
 
+/* ── Mission / Vision / Values ── */
+.mvv-section {
+  background:
+    radial-gradient(800px 400px at 20% 0%, rgba(201,160,71,0.07), transparent 60%),
+    linear-gradient(180deg, #f7f9fc 0%, #eef3fa 100%);
+}
+.mvv-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr 1fr;
+}
+.mvv-card {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 8px 32px rgba(6,26,50,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mvv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(6,26,50,0.10);
+}
+.mvv-card-values {
+  grid-column: 1 / -1;
+}
+.mvv-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(201,160,71,0.12), rgba(201,160,71,0.04));
+  color: var(--gold, #c9a047);
+  margin-bottom: 18px;
+}
+.mvv-card h3 {
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  color: var(--brand-deep, #061a32);
+  margin: 0 0 12px;
+}
+.mvv-card > p {
+  color: var(--muted, #5a6b85);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 1rem;
+}
+.mvv-values-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.mvv-value-item {
+  padding: 16px 18px;
+  background: linear-gradient(135deg, rgba(6,26,50,0.025), rgba(201,160,71,0.04));
+  border-radius: 14px;
+  border-left: 3px solid var(--gold, #c9a047);
+}
+.mvv-value-name {
+  display: block;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--brand-deep, #061a32);
+  margin-bottom: 4px;
+}
+.mvv-value-desc {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted, #5a6b85);
+  line-height: 1.5;
+}
+@media (max-width: 720px) {
+  .mvv-grid { grid-template-columns: 1fr; }
+  .mvv-values-list { grid-template-columns: 1fr; }
+}
+
 /* Icon circle for feature cards */
 .feature-icon {
   display: inline-flex;
