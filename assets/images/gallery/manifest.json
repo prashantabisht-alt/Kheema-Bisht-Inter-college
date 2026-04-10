@@ -281,5 +281,26 @@
       "alt": "Group photograph of medal and trophy winners at the annual awards day"
     }
   ],
-  "staff": []
+  "staff": [
+    {
+      "slug": "school-manager",
+      "alt": "School Manager addressing a gathering on the campus grounds"
+    },
+    {
+      "slug": "female-staff-1",
+      "alt": "Female teaching staff gathered in front of the main building for an observance ceremony"
+    },
+    {
+      "slug": "female-staff-2",
+      "alt": "Female staff assembled near the flag post with the school building and buses in the background"
+    },
+    {
+      "slug": "male-staff-1",
+      "alt": "Male teaching staff group photo beside the national flag with the campus building behind"
+    },
+    {
+      "slug": "male-staff-2",
+      "alt": "Senior faculty and administration paying tribute during a memorial ceremony in the school courtyard"
+    }
+  ]
 }
