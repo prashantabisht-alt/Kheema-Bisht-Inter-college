@@ -47,6 +47,7 @@
         <a href="admissions.html">Admissions</a>
         <a href="facilities.html">Facilities</a>
         <a href="staff.html">Staff</a>
+        <a href="results.html">Results</a>
         <a class="active" href="gallery.html">Gallery</a>
         <a href="news.html">News</a>
         <a href="contact.html">Contact</a>
@@ -63,129 +64,24 @@
       </div>
     </section>
 
-    <section class="video-section">
+    <!-- ── Top-level Photos / Videos toggle ── -->
+    <section class="section" style="padding-top:0; padding-bottom:0;">
       <div class="container">
-        <span class="eyebrow">Video Highlights</span>
-        <h2 style="margin:0 0 10px;">Watch Campus Life in Motion</h2>
-        <p class="lede">A real look inside our classrooms, festivals, and sports days &mdash; shot on campus, not from stock libraries. Tap any video to play.</p>
-
-        <h3 class="video-group-title">Campus Tour</h3>
-        <div class="video-gallery-grid" data-reveal>
-          <article class="video-card">
-            <div class="video-frame portrait" style="border-radius:0; max-width:none;">
-              <video controls playsinline preload="none"
-                poster="../assets/images/posters/nursery-class-tour.jpg"
-                aria-label="Nursery classroom walkthrough">
-                <source src="../assets/videos/nursery-class-tour.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="video-card-body">
-              <span class="tag">Campus &middot; Pre-Primary</span>
-              <h3>Nursery Classroom Walkthrough</h3>
-              <p>A 47-second walk through a working nursery classroom &mdash; wall learning, seating, and how the space is set up for small children.</p>
-            </div>
-          </article>
-        </div>
-
-        <h3 class="video-group-title">Events &amp; Festivals</h3>
-        <div class="video-gallery-grid" data-reveal>
-          <article class="video-card">
-            <div class="video-frame landscape" style="border-radius:0;">
-              <video controls playsinline preload="none"
-                poster="../assets/images/posters/26-jan-celebration-2026.jpg"
-                aria-label="Republic Day 2026 celebration">
-                <source src="../assets/videos/26-jan-celebration-2026.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="video-card-body">
-              <span class="tag">Event &middot; 26 Jan 2026</span>
-              <h3>Republic Day 2026 Celebration</h3>
-              <p>Flag hoisting and cultural programme from 26<sup>th</sup> January 2026 &mdash; students, staff, and the community marking the day together.</p>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame portrait" style="border-radius:0; max-width:none;">
-              <video controls playsinline preload="none"
-                poster="../assets/images/posters/holi-celebration.jpg"
-                aria-label="Holi celebration on campus">
-                <source src="../assets/videos/holi-celebration.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="video-card-body">
-              <span class="tag">Festival &middot; Holi</span>
-              <h3>Holi Celebration</h3>
-              <p>Colours, music and laughter on campus as students and teachers celebrate Holi together. One of our most joyful days of the year.</p>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame portrait" style="border-radius:0; max-width:none;">
-              <video controls playsinline preload="none"
-                poster="../assets/images/posters/cultural-program.jpg"
-                aria-label="Annual cultural programme performance">
-                <source src="../assets/videos/cultural-program.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="video-card-body">
-              <span class="tag">Event &middot; Cultural Day</span>
-              <h3>Annual Cultural Programme</h3>
-              <p>Song, dance and stage performances by students across grades &mdash; a showcase of the creative side of school life at KBIC.</p>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame portrait" style="border-radius:0; max-width:none;">
-              <video controls playsinline preload="none"
-                poster="../assets/images/posters/farewell-2025.jpg"
-                aria-label="Class XII farewell 2025">
-                <source src="../assets/videos/farewell-2025.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="video-card-body">
-              <span class="tag">Event &middot; Farewell 2025</span>
-              <h3>Class XII Farewell 2025</h3>
-              <p>A heartfelt send-off for our outgoing Class XII students &mdash; memories, messages, and the warmth of a school community saying goodbye.</p>
-            </div>
-          </article>
-        </div>
-
-        <h3 class="video-group-title">Sports Day</h3>
-        <div class="video-gallery-grid" data-reveal>
-          <article class="video-card">
-            <div class="video-frame landscape" style="border-radius:0;">
-              <video controls playsinline preload="none"
-                poster="../assets/images/posters/sports-day.jpg"
-                aria-label="Annual sports day at KBIC">
-                <source src="../assets/videos/sports-day.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="video-card-body">
-              <span class="tag">Sports &middot; Senior</span>
-              <h3>Annual Sports Day</h3>
-              <p>Track events, team competitions and the full energy of a KBIC sports day &mdash; where students build teamwork, discipline and confidence.</p>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame portrait" style="border-radius:0; max-width:none;">
-              <video controls playsinline preload="none"
-                poster="../assets/images/posters/kids-sports-day.jpg"
-                aria-label="Junior kids sports day">
-                <source src="../assets/videos/kids-sports-day.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="video-card-body">
-              <span class="tag">Sports &middot; Juniors</span>
-              <h3>Kids Sports Day</h3>
-              <p>Our youngest learners get their own day on the field &mdash; fun races, cheering teachers, and first medals for little champions.</p>
-            </div>
-          </article>
+        <div class="gallery-mode-tabs" id="gallery-mode-tabs">
+          <button class="gallery-mode-tab active" data-mode="photos" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Photos
+          </button>
+          <button class="gallery-mode-tab" data-mode="videos" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Videos <span class="gallery-mode-count">7</span>
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- ── PHOTOS PANEL ── -->
+    <section class="section gallery-panel" id="panel-photos">
       <div class="container">
         <div
           id="gallery-root"
@@ -193,7 +89,6 @@
           data-manifest="/assets/images/gallery/manifest.json"
           data-base="/assets/images/gallery"
         >
-          <!-- Tabs and photo grid are injected by main.js as soon as the manifest loads. -->
           <p class="gallery-loading" role="status">Loading photos…</p>
           <noscript>
             <p>Photo gallery requires JavaScript. Browse categories directly:</p>
@@ -201,6 +96,131 @@
               <li><a href="/assets/images/gallery/manifest.json">Gallery manifest (JSON)</a></li>
             </ul>
           </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VIDEOS PANEL ── -->
+    <section class="gallery-panel" id="panel-videos" style="display:none;">
+      <div class="video-section" style="padding-top:40px;">
+        <div class="container">
+          <span class="eyebrow">Video Highlights</span>
+          <h2 style="margin:0 0 10px;">Watch Campus Life in Motion</h2>
+          <p class="lede">A real look inside our classrooms, festivals, and sports days &mdash; shot on campus, not from stock libraries. Tap any video to play.</p>
+
+          <h3 class="video-group-title">Campus Tour</h3>
+          <div class="video-gallery-grid" data-reveal>
+            <article class="video-card">
+              <div class="video-thumb-wrap portrait">
+                <video controls playsinline preload="none"
+                  poster="../assets/images/posters/nursery-class-tour.jpg"
+                  aria-label="Nursery classroom walkthrough">
+                  <source src="../assets/videos/nursery-class-tour.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-body">
+                <span class="tag">Campus &middot; Pre-Primary</span>
+                <h3>Nursery Classroom Walkthrough</h3>
+                <p>A 47-second walk through a working nursery classroom &mdash; wall learning, seating, and how the space is set up for small children.</p>
+              </div>
+            </article>
+          </div>
+
+          <h3 class="video-group-title">Events &amp; Festivals</h3>
+          <div class="video-gallery-grid" data-reveal>
+            <article class="video-card">
+              <div class="video-thumb-wrap landscape">
+                <video controls playsinline preload="none"
+                  poster="../assets/images/posters/26-jan-celebration-2026.jpg"
+                  aria-label="Republic Day 2026 celebration">
+                  <source src="../assets/videos/26-jan-celebration-2026.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-body">
+                <span class="tag">Event &middot; 26 Jan 2026</span>
+                <h3>Republic Day 2026 Celebration</h3>
+                <p>Flag hoisting and cultural programme from 26<sup>th</sup> January 2026 &mdash; students, staff, and the community marking the day together.</p>
+              </div>
+            </article>
+
+            <article class="video-card">
+              <div class="video-thumb-wrap portrait">
+                <video controls playsinline preload="none"
+                  poster="../assets/images/posters/holi-celebration.jpg"
+                  aria-label="Holi celebration on campus">
+                  <source src="../assets/videos/holi-celebration.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-body">
+                <span class="tag">Festival &middot; Holi</span>
+                <h3>Holi Celebration</h3>
+                <p>Colours, music and laughter on campus as students and teachers celebrate Holi together. One of our most joyful days of the year.</p>
+              </div>
+            </article>
+
+            <article class="video-card">
+              <div class="video-thumb-wrap portrait">
+                <video controls playsinline preload="none"
+                  poster="../assets/images/posters/cultural-program.jpg"
+                  aria-label="Annual cultural programme performance">
+                  <source src="../assets/videos/cultural-program.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-body">
+                <span class="tag">Event &middot; Cultural Day</span>
+                <h3>Annual Cultural Programme</h3>
+                <p>Song, dance and stage performances by students across grades &mdash; a showcase of the creative side of school life at KBIC.</p>
+              </div>
+            </article>
+
+            <article class="video-card">
+              <div class="video-thumb-wrap portrait">
+                <video controls playsinline preload="none"
+                  poster="../assets/images/posters/farewell-2025.jpg"
+                  aria-label="Class XII farewell 2025">
+                  <source src="../assets/videos/farewell-2025.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-body">
+                <span class="tag">Event &middot; Farewell 2025</span>
+                <h3>Class XII Farewell 2025</h3>
+                <p>A heartfelt send-off for our outgoing Class XII students &mdash; memories, messages, and the warmth of a school community saying goodbye.</p>
+              </div>
+            </article>
+          </div>
+
+          <h3 class="video-group-title">Sports Day</h3>
+          <div class="video-gallery-grid" data-reveal>
+            <article class="video-card">
+              <div class="video-thumb-wrap landscape">
+                <video controls playsinline preload="none"
+                  poster="../assets/images/posters/sports-day.jpg"
+                  aria-label="Annual sports day at KBIC">
+                  <source src="../assets/videos/sports-day.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-body">
+                <span class="tag">Sports &middot; Senior</span>
+                <h3>Annual Sports Day</h3>
+                <p>Track events, team competitions and the full energy of a KBIC sports day &mdash; where students build teamwork, discipline and confidence.</p>
+              </div>
+            </article>
+
+            <article class="video-card">
+              <div class="video-thumb-wrap portrait">
+                <video controls playsinline preload="none"
+                  poster="../assets/images/posters/kids-sports-day.jpg"
+                  aria-label="Junior kids sports day">
+                  <source src="../assets/videos/kids-sports-day.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-body">
+                <span class="tag">Sports &middot; Juniors</span>
+                <h3>Kids Sports Day</h3>
+                <p>Our youngest learners get their own day on the field &mdash; fun races, cheering teachers, and first medals for little champions.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -287,5 +307,32 @@
 
   <script src="../assets/js/site-config.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
+  <script>
+    /* Gallery Photos / Videos toggle */
+    document.addEventListener('DOMContentLoaded', function () {
+      var tabs = document.querySelectorAll('.gallery-mode-tab');
+      var panels = { photos: document.getElementById('panel-photos'), videos: document.getElementById('panel-videos') };
+      tabs.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var mode = btn.getAttribute('data-mode');
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          btn.classList.add('active');
+          Object.keys(panels).forEach(function (k) {
+            panels[k].style.display = k === mode ? '' : 'none';
+          });
+          /* Pause all videos when switching to photos */
+          if (mode === 'photos') {
+            document.querySelectorAll('#panel-videos video').forEach(function (v) { v.pause(); });
+          }
+        });
+      });
+
+      /* Support deep-link: gallery.html#videos */
+      if (window.location.hash === '#videos') {
+        var vBtn = document.querySelector('[data-mode="videos"]');
+        if (vBtn) vBtn.click();
+      }
+    });
+  </script>
 </body>
 </html>
