@@ -312,21 +312,109 @@
     }
 
     /* ── Highlight for students who placed in BOTH HS and Inter ── */
-    .double-merit {
-      position: relative;
-    }
-    .double-merit::after {
-      content: 'HS + Inter';
+    /* ── Badge row (top-right corner of topper-row) ── */
+    .topper-badges {
       position: absolute;
       top: 8px; right: 12px;
-      font-size: 0.6rem;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .badge-pill {
+      font-size: 0.58rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 10px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .badge-pill.double {
       background: linear-gradient(135deg, #c9a047, #e8c96a);
       color: #fff;
-      padding: 2px 8px;
-      border-radius: 10px;
+    }
+    .badge-pill.block-topper {
+      background: linear-gradient(135deg, #1a6b3c, #28a05c);
+      color: #fff;
+    }
+
+    /* ── Legacy / History Banner ── */
+    .legacy-banner {
+      background: linear-gradient(135deg, #061a32 0%, #0b2a4a 100%);
+      border-radius: 20px;
+      padding: 44px 36px;
+      margin: 12px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .legacy-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 400px 300px at 10% 80%, rgba(201,160,71,0.07), transparent),
+        radial-gradient(ellipse 300px 250px at 90% 20%, rgba(201,160,71,0.05), transparent);
+      pointer-events: none;
+    }
+    .legacy-banner .legacy-inner {
+      position: relative; z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .legacy-banner .legacy-icon {
+      flex-shrink: 0;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(201,160,71,0.1);
+      border: 2px solid rgba(201,160,71,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+    }
+    .legacy-banner h3 {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    .legacy-banner p {
+      color: rgba(244,246,251,0.7);
+      margin: 0;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .legacy-banner .legacy-stats {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .legacy-banner .legacy-stat {
+      text-align: center;
+    }
+    .legacy-banner .legacy-stat .ls-num {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+    }
+    .legacy-banner .legacy-stat .ls-label {
+      font-size: 0.72rem;
+      color: rgba(244,246,251,0.55);
+      margin-top: 3px;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .legacy-banner .legacy-inner { flex-direction: column; text-align: center; }
+      .legacy-banner .legacy-stats { justify-content: center; }
+      .topper-badges { position: static; margin-bottom: 6px; justify-content: flex-start; }
     }
 
     /* ── Summary Table ── */
@@ -440,8 +528,8 @@
             <span class="label">Consecutive<br>Sessions</span>
           </div>
           <div class="counter-box">
-            <span class="num" data-count="13">13</span>
-            <span class="label">Unique Students<br>in State Merit</span>
+            <span class="num" data-count="4">4</span>
+            <span class="label">Block Toppers<br>in 3 Sessions</span>
           </div>
         </div>
       </div>
@@ -468,6 +556,13 @@
 
           <!-- High School 2024-25 -->
           <div class="topper-row rank-top10">
+            <div class="topper-badges"><span class="badge-pill block-topper">Block Topper</span></div>
+            <div class="topper-badges"><span class="badge-pill block-topper">Block Topper</span><span class="badge-pill double">HS + Inter</span></div>
+            <div class="topper-badges"><span class="badge-pill double">HS + Inter</span></div>
+            <div class="topper-badges"><span class="badge-pill double">HS + Inter</span></div>
+            <div class="topper-badges"><span class="badge-pill block-topper">Block Topper</span><span class="badge-pill double">HS + Inter</span></div>
+            <div class="topper-badges"><span class="badge-pill double">HS + Inter</span></div>
+            <div class="topper-badges"><span class="badge-pill double">HS + Inter</span></div>
             <div class="rank-badge">8th</div>
             <img class="topper-photo" src="../assets/images/toppers/himani-bhandari.jpg" alt="Himani Bhandari" loading="lazy" />
             <div class="topper-info">
@@ -494,7 +589,7 @@
           </div>
 
           <!-- Intermediate 2024-25 -->
-          <div class="topper-row rank-top10 double-merit">
+          <div class="topper-row rank-top10">
             <div class="rank-badge">7th</div>
             <img class="topper-photo" src="../assets/images/toppers/manpreet-kaur.jpg" alt="Manpreet Kaur" loading="lazy" />
             <div class="topper-info">
@@ -533,7 +628,7 @@
             </div>
           </div>
 
-          <div class="topper-row double-merit">
+          <div class="topper-row">
             <div class="rank-badge">19th</div>
             <img class="topper-photo" src="../assets/images/toppers/mohit-chandra.jpg" alt="Mohit Chandra" loading="lazy" />
             <div class="topper-info">
@@ -546,7 +641,7 @@
             </div>
           </div>
 
-          <div class="topper-row double-merit">
+          <div class="topper-row">
             <div class="rank-badge">20th</div>
             <img class="topper-photo" src="../assets/images/toppers/aarti-chand.jpg" alt="Aarti Chand" loading="lazy" />
             <div class="topper-info">
@@ -582,6 +677,7 @@
           </div>
 
           <div class="topper-row">
+            <div class="topper-badges"><span class="badge-pill block-topper">Block Topper</span></div>
             <div class="rank-badge">17th</div>
             <img class="topper-photo" src="../assets/images/toppers/chandani-kholiya.jpg" alt="Chandani Kholiya" loading="lazy" />
             <div class="topper-info">
@@ -642,7 +738,8 @@
             <span class="session-badge inter">Intermediate</span>
           </div>
 
-          <div class="topper-row double-merit">
+          <div class="topper-row">
+            <div class="topper-badges"><span class="badge-pill block-topper">Block Topper</span></div>
             <div class="rank-badge">11th</div>
             <img class="topper-photo" src="../assets/images/toppers/manpreet-kaur.jpg" alt="Manpreet Kaur" loading="lazy" />
             <div class="topper-info">
@@ -655,7 +752,7 @@
             </div>
           </div>
 
-          <div class="topper-row double-merit">
+          <div class="topper-row">
             <div class="rank-badge">22nd</div>
             <img class="topper-photo" src="../assets/images/toppers/mohit-chandra.jpg" alt="Mohit Chandra" loading="lazy" />
             <div class="topper-info">
@@ -668,7 +765,7 @@
             </div>
           </div>
 
-          <div class="topper-row double-merit">
+          <div class="topper-row">
             <div class="rank-badge">24th</div>
             <img class="topper-photo" src="../assets/images/toppers/aarti-chand.jpg" alt="Aarti Chand" loading="lazy" />
             <div class="topper-info">
@@ -698,7 +795,7 @@
         <!-- ═══════ SUMMARY TABLE ═══════ -->
         <div data-reveal>
           <h2 style="font-family:var(--font-head); margin:48px 0 8px; color:var(--brand-deep);">At a Glance</h2>
-          <p style="color:var(--muted); margin:0 0 20px;">Students who placed in <strong>both</strong> High School and Intermediate merit lists are marked with a star.</p>
+          <p style="color:var(--muted); margin:0 0 20px;">&#9733; = placed in both HS &amp; Intermediate &nbsp;&middot;&nbsp; <span style="color:#28a05c; font-weight:600;">&#9679;</span> = Block Topper</p>
           <div style="overflow-x:auto;">
             <table class="summary-table">
               <thead>
@@ -708,27 +805,54 @@
                   <th>Session</th>
                   <th>Score</th>
                   <th>State Rank</th>
+                  <th>Notes</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td><strong>Himani Bhandari</strong></td><td>Class X</td><td>2024–25</td><td class="highlight-score">97.6%</td><td>8th</td></tr>
-                <tr><td><strong>Harshit Singh Dhami</strong></td><td>Class X</td><td>2024–25</td><td class="highlight-score">96.8%</td><td>12th</td></tr>
-                <tr><td><strong>Manpreet Kaur</strong> &#9733;</td><td>Class X</td><td>2022–23</td><td class="highlight-score">96.8%</td><td>11th</td></tr>
-                <tr><td><strong>Chandani Kholiya</strong></td><td>Class X</td><td>2023–24</td><td class="highlight-score">96.2%</td><td>17th</td></tr>
-                <tr><td><strong>Manpreet Kaur</strong> &#9733;</td><td>Class XII</td><td>2024–25</td><td class="highlight-score">95.8%</td><td>7th</td></tr>
-                <tr><td><strong>Khushi Rana</strong></td><td>Class X</td><td>2023–24</td><td>94.6%</td><td>25th</td></tr>
-                <tr><td><strong>Mohit Chandra</strong> &#9733;</td><td>Class X</td><td>2022–23</td><td>94.6%</td><td>22nd</td></tr>
-                <tr><td><strong>Aarti Chand</strong> &#9733;</td><td>Class X</td><td>2022–23</td><td>94.2%</td><td>24th</td></tr>
-                <tr><td><strong>Pratibha Rana</strong></td><td>Class XII</td><td>2024–25</td><td>94.2%</td><td>14th</td></tr>
-                <tr><td><strong>Akanksha Bisht</strong></td><td>Class XII</td><td>2023–24</td><td>93.8%</td><td>14th</td></tr>
-                <tr><td><strong>Prince</strong></td><td>Class XII</td><td>2022–23</td><td>93.8%</td><td>17th</td></tr>
-                <tr><td><strong>Tanisha Rana</strong></td><td>Class XII</td><td>2024–25</td><td>93.2%</td><td>19th</td></tr>
-                <tr><td><strong>Mohit Chandra</strong> &#9733;</td><td>Class XII</td><td>2024–25</td><td>93.2%</td><td>19th</td></tr>
-                <tr><td><strong>Aarti Chand</strong> &#9733;</td><td>Class XII</td><td>2024–25</td><td>93%</td><td>20th</td></tr>
-                <tr><td><strong>Ayush Chand</strong></td><td>Class XII</td><td>2023–24</td><td>92%</td><td>23rd</td></tr>
-                <tr><td><strong>Neha Thakurathi</strong></td><td>Class XII</td><td>2024–25</td><td>92.4%</td><td>23rd</td></tr>
+                <tr><td><strong>Himani Bhandari</strong></td><td>Class X</td><td>2024–25</td><td class="highlight-score">97.6%</td><td>8th</td><td><span style="color:#28a05c; font-weight:700;">Block Topper</span></td></tr>
+                <tr><td><strong>Harshit Singh Dhami</strong></td><td>Class X</td><td>2024–25</td><td class="highlight-score">96.8%</td><td>12th</td><td></td></tr>
+                <tr><td><strong>Manpreet Kaur</strong> &#9733;</td><td>Class X</td><td>2022–23</td><td class="highlight-score">96.8%</td><td>11th</td><td><span style="color:#28a05c; font-weight:700;">Block Topper</span></td></tr>
+                <tr><td><strong>Chandani Kholiya</strong></td><td>Class X</td><td>2023–24</td><td class="highlight-score">96.2%</td><td>17th</td><td></td></tr>
+                <tr><td><strong>Manpreet Kaur</strong> &#9733;</td><td>Class XII</td><td>2024–25</td><td class="highlight-score">95.8%</td><td>7th</td><td><span style="color:#28a05c; font-weight:700;">Block Topper</span></td></tr>
+                <tr><td><strong>Khushi Rana</strong></td><td>Class X</td><td>2023–24</td><td>94.6%</td><td>25th</td><td></td></tr>
+                <tr><td><strong>Mohit Chandra</strong> &#9733;</td><td>Class X</td><td>2022–23</td><td>94.6%</td><td>22nd</td><td></td></tr>
+                <tr><td><strong>Aarti Chand</strong> &#9733;</td><td>Class X</td><td>2022–23</td><td>94.2%</td><td>24th</td><td></td></tr>
+                <tr><td><strong>Pratibha Rana</strong></td><td>Class XII</td><td>2024–25</td><td>94.2%</td><td>14th</td><td></td></tr>
+                <tr><td><strong>Akanksha Bisht</strong></td><td>Class XII</td><td>2023–24</td><td>93.8%</td><td>14th</td><td><span style="color:#28a05c; font-weight:700;">Block Topper</span></td></tr>
+                <tr><td><strong>Prince</strong></td><td>Class XII</td><td>2022–23</td><td>93.8%</td><td>17th</td><td><span style="color:#28a05c; font-weight:700;">Block Topper</span></td></tr>
+                <tr><td><strong>Tanisha Rana</strong></td><td>Class XII</td><td>2024–25</td><td>93.2%</td><td>19th</td><td></td></tr>
+                <tr><td><strong>Mohit Chandra</strong> &#9733;</td><td>Class XII</td><td>2024–25</td><td>93.2%</td><td>19th</td><td></td></tr>
+                <tr><td><strong>Aarti Chand</strong> &#9733;</td><td>Class XII</td><td>2024–25</td><td>93%</td><td>20th</td><td></td></tr>
+                <tr><td><strong>Ayush Chand</strong></td><td>Class XII</td><td>2023–24</td><td>92%</td><td>23rd</td><td></td></tr>
+                <tr><td><strong>Neha Thakurathi</strong></td><td>Class XII</td><td>2024–25</td><td>92.4%</td><td>23rd</td><td></td></tr>
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <!-- ═══════ LEGACY BANNER ═══════ -->
+        <div class="legacy-banner" data-reveal>
+          <div class="legacy-inner">
+            <div class="legacy-icon">&#128218;</div>
+            <div>
+              <h3>A Legacy That Goes Back Much Further</h3>
+              <p>The data above covers only the last three sessions (2022–23 to 2024–25). KBIC students have been placing in the Uttarakhand Board state merit list <strong style="color:var(--accent);">for many years before that</strong> — a track record built over more than a decade of consistent academic excellence from a school in Gaujhariya, Khatima.</p>
+              <p style="margin-top:10px;">Older records are being compiled and will be added here as they become available. What you see above is just the most recent chapter.</p>
+              <div class="legacy-stats">
+                <div class="legacy-stat">
+                  <span class="ls-num">10+</span>
+                  <span class="ls-label">Years of Merit<br>Placements</span>
+                </div>
+                <div class="legacy-stat">
+                  <span class="ls-num">Many More</span>
+                  <span class="ls-label">Students in State<br>Top 25 Before 2022</span>
+                </div>
+                <div class="legacy-stat">
+                  <span class="ls-num">Multiple</span>
+                  <span class="ls-label">Deen Dayal Upadhyay<br>Awards Won</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
