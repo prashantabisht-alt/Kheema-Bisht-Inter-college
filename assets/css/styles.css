@@ -3238,39 +3238,44 @@ body.no-scroll { overflow: hidden; }
 /* ── Merit / Topper Cards ── */
 .merit-year-title {
   font-family: var(--font-head);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--accent);
-  margin: 36px 0 14px;
+  margin: 32px 0 16px;
   padding-bottom: 6px;
   border-bottom: 1px solid rgba(201,160,71,0.25);
   display: inline-block;
 }
-.merit-year-title:first-of-type { margin-top: 18px; }
+.merit-year-title:first-of-type { margin-top: 14px; }
 .merit-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
   margin-bottom: 10px;
 }
 .topper-card {
+  position: relative;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(201,160,71,0.18);
-  border-radius: 12px;
-  padding: 14px 10px 12px;
+  border-radius: 16px;
+  padding: 20px 14px 16px;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  width: 155px;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 .topper-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+  border-color: rgba(201,160,71,0.4);
 }
 .topper-card img {
-  width: 90px;
-  height: 90px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--accent);
-  margin-bottom: 8px;
+  border: 3px solid var(--accent);
+  margin-bottom: 10px;
+  box-shadow: 0 3px 12px rgba(201,160,71,0.2);
 }
 .topper-card .topper-name {
   font-weight: 700;
@@ -3279,28 +3284,38 @@ body.no-scroll { overflow: hidden; }
   line-height: 1.25;
 }
 .topper-card .topper-score {
-  font-size: 0.82rem;
+  font-family: var(--font-head);
+  font-size: 1.1rem;
   color: var(--accent);
-  font-weight: 600;
-  margin-top: 2px;
+  font-weight: 700;
+  margin-top: 4px;
+  line-height: 1;
 }
 .topper-card .topper-rank {
   font-size: 0.75rem;
-  color: rgba(244,246,251,0.65);
-  margin-top: 1px;
+  color: rgba(244,246,251,0.6);
+  margin-top: 3px;
 }
-.topper-card .topper-placeholder {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: rgba(201,160,71,0.12);
-  border: 2px solid rgba(201,160,71,0.3);
-  margin: 0 auto 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: rgba(201,160,71,0.5);
+/* Block Topper highlight on homepage cards */
+.topper-card.is-block-topper {
+  border-color: rgba(40,160,92,0.35);
+  background: linear-gradient(160deg, rgba(40,160,92,0.06) 0%, rgba(255,255,255,0.04) 100%);
+}
+.topper-card.is-block-topper img {
+  border-color: #28a05c;
+  box-shadow: 0 3px 14px rgba(40,160,92,0.25);
+}
+.topper-card .bt-tag {
+  display: inline-block;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #1a6b3c, #28a05c);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-top: 6px;
 }
 .merit-section-label {
   font-family: var(--font-head);
@@ -3309,6 +3324,7 @@ body.no-scroll { overflow: hidden; }
   color: #fff;
   margin: 28px 0 4px;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 .merit-section-label .label-badge {
   display: inline-block;
@@ -3324,6 +3340,7 @@ body.no-scroll { overflow: hidden; }
   vertical-align: middle;
 }
 @media (max-width: 480px) {
-  .merit-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
-  .topper-card img, .topper-card .topper-placeholder { width: 70px; height: 70px; }
+  .topper-card { width: 130px; padding: 14px 10px 12px; }
+  .topper-card img { width: 70px; height: 70px; }
+  .merit-grid { gap: 12px; }
 }
