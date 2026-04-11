@@ -66,30 +66,30 @@
     <section class="section">
       <div class="container">
         <div class="section-header-center" data-reveal>
-          <p class="section-eyebrow">How It Works</p>
-          <h2>Admission Process</h2>
+          <p class="section-eyebrow" data-i18n="admProcessEyebrow">How It Works</p>
+          <h2 data-i18n="admProcessHeading">Admission Process</h2>
           <p>A simple, transparent 4-step journey from inquiry to confirmed seat &mdash; no long queues, no guesswork.</p>
         </div>
         <div class="process-steps">
           <article class="process-step" data-reveal>
             <div class="process-step-num">1</div>
-            <h4>Inquire</h4>
-            <p>Fill the form below or WhatsApp our admissions team. We respond within 24 hours on school days.</p>
+            <h4 data-i18n="admStep1Title">Inquire</h4>
+            <p data-i18n="admStep1Desc">Fill the form below or WhatsApp our admissions team. We respond within 24 hours on school days.</p>
           </article>
           <article class="process-step" data-reveal>
             <div class="process-step-num">2</div>
-            <h4>Visit Campus</h4>
-            <p>Walk in any working day between 9 AM and 1 PM &mdash; no appointment needed. Meet teachers, see classrooms, ask every question you have.</p>
+            <h4 data-i18n="admStep2Title">Visit Campus</h4>
+            <p data-i18n="admStep2Desc">Walk in any working day between 9 AM and 1 PM &mdash; no appointment needed. Meet teachers, see classrooms, ask every question you have.</p>
           </article>
           <article class="process-step" data-reveal>
             <div class="process-step-num">3</div>
-            <h4>Submit Documents</h4>
-            <p>Student's birth certificate and Aadhar card, Aadhar card of both parents, and 2 passport-size photographs of the student. If your child is coming from another school, please also bring the previous report card.</p>
+            <h4 data-i18n="admStep3Title">Submit Documents</h4>
+            <p data-i18n="admStep3Desc">Student's birth certificate and Aadhar card, Aadhar card of both parents, and 2 passport-size photographs of the student. If your child is coming from another school, please also bring the previous report card.</p>
           </article>
           <article class="process-step" data-reveal>
             <div class="process-step-num">4</div>
-            <h4>Confirm Seat</h4>
-            <p>Collect the welcome kit and your child is officially part of the KBIC family. Any questions on timings, transport, or fees are answered by our office team in person.</p>
+            <h4 data-i18n="admStep4Title">Confirm Seat</h4>
+            <p data-i18n="admStep4Desc">Collect the welcome kit and your child is officially part of the KBIC family. Any questions on timings, transport, or fees are answered by our office team in person.</p>
           </article>
         </div>
       </div>
@@ -104,18 +104,18 @@
         </div>
         <form id="admission-form" class="form" action="#" method="post">
           <input type="hidden" name="form_type" value="admission" />
-          <input type="text" name="student_name" placeholder="Student Name" required />
+          <input type="text" name="student_name" placeholder="Student Name" data-i18n-placeholder="admFormStudentName" required />
           <select name="class" required>
-            <option value="">Select Class</option>
+            <option value="" data-i18n="admFormClass">Select Class</option>
             <option>Nursery</option><option>I</option><option>II</option><option>III</option><option>IV</option><option>V</option>
             <option>VI</option><option>VII</option><option>VIII</option><option>IX</option><option>X</option><option>XI</option><option>XII</option>
           </select>
-          <input type="text" name="parent_name" placeholder="Parent Name" required />
-          <input type="tel" name="phone" placeholder="Phone Number" required />
-          <input type="email" name="email" placeholder="Email Address" />
-          <textarea name="message" placeholder="Message"></textarea>
+          <input type="text" name="parent_name" placeholder="Parent Name" data-i18n-placeholder="admFormParentName" required />
+          <input type="tel" name="phone" placeholder="Phone Number" data-i18n-placeholder="admFormPhone" required />
+          <input type="email" name="email" placeholder="Email Address" data-i18n-placeholder="admFormEmail" />
+          <textarea name="message" placeholder="Message" data-i18n-placeholder="admFormMessage"></textarea>
           <button class="btn btn-primary" type="submit" data-i18n="submitInquiry">Submit Inquiry</button>
-          <p class="form-status">Our admissions team will respond within 24 hours on school days.</p>
+          <p class="form-status" data-i18n="admFormResponse">Our admissions team will respond within 24 hours on school days.</p>
         </form>
       </div>
     </section>
@@ -124,7 +124,7 @@
       <div class="container">
         <div style="background:linear-gradient(160deg, #061a32 0%, #0b2a4a 100%); border-radius:20px; padding:40px 32px; text-align:center; position:relative; overflow:hidden;">
           <div style="position:relative; z-index:1;">
-            <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin:0 0 10px;">Why KBIC</p>
+            <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin:0 0 10px;" data-i18n="admWhyHeading">Why KBIC</p>
             <h2 style="font-family:var(--font-head); font-size:1.5rem; color:#fff; margin:0 0 12px;">16 Students in the State Top 25. 4 Block Toppers. 3 Consecutive Years.</h2>
             <p style="color:rgba(244,246,251,0.7); max-width:550px; margin:0 auto 20px; line-height:1.6;">Our students don't just pass — they rank among the best in Uttarakhand. Honoured with the Pt. Deen Dayal Upadhyay Academic Excellence Award multiple times.</p>
             <div style="display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:22px;">
@@ -153,7 +153,7 @@
       <section class="footer-brand">
         <h3 class="js-school-name">Kheema Bisht Inter College</h3>
         <p class="js-tagline">Education for All. Excellence for Each.</p>
-        <p>Affiliated to the Uttarakhand Board of School Education (UBSE). NCERT-based curriculum offered in both English and Hindi medium, from Nursery to Class XII.</p>
+        <p data-i18n="footerAffiliation">Affiliated to the Uttarakhand Board of School Education (UBSE). NCERT-based curriculum offered in both English and Hindi medium, from Nursery to Class XII.</p>
       </section>
 
       <section class="footer-contact">
@@ -173,7 +173,7 @@
       </section>
 
       <section class="footer-links">
-        <h3>Explore</h3>
+        <h3 data-i18n="explore">Explore</h3>
         <p><a href="about.html">About Us</a></p>
         <p><a href="academics.html">Academics</a></p>
         <p><a href="admissions.html">Admissions</a></p>
@@ -186,8 +186,8 @@
       </section>
 
       <section class="footer-social">
-        <h3>Follow Us</h3>
-        <p>Stay connected and see what's happening on campus every week.</p>
+        <h3 data-i18n="followUs">Follow Us</h3>
+        <p data-i18n="followUsSub">Stay connected and see what's happening on campus every week.</p>
         <div class="footer-social-links">
           <a href="https://www.facebook.com/kheema.bisht.1401/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
