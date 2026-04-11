@@ -128,18 +128,18 @@
   </div>
 
   <!-- ── Notice Board ── -->
-  <section class="notice-board" id="notice-board" style="display:none;">
+  <section class="nb" id="notice-board" style="display:none;">
     <div class="container">
-      <div class="notice-board-inner">
-        <div class="notice-board-header">
-          <div class="notice-board-bell">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          </div>
-          <span class="notice-board-label" data-i18n="latestNotices">Latest Notices</span>
-          <a href="pages/news.html" class="notice-board-viewall" data-i18n="viewAllNotices">View All &rarr;</a>
+      <div class="nb-head">
+        <div class="nb-head-left">
+          <span class="nb-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </span>
+          <h2 class="nb-title" data-i18n="latestNotices">Latest Notices</h2>
         </div>
-        <div class="notice-board-cards" id="notice-board-cards"></div>
+        <a href="pages/news.html" class="nb-viewall" data-i18n="viewAllNotices">View All &rarr;</a>
       </div>
+      <div class="nb-grid" id="notice-board-cards"></div>
     </div>
   </section>
 
@@ -598,25 +598,32 @@
   <script>
     /* Notice Board — pulls from news.json */
     (function () {
+      var icons = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+      ];
       fetch('assets/data/news.json')
         .then(function (r) { return r.json(); })
         .then(function (items) {
           if (!items || !items.length) return;
           var board = document.getElementById('notice-board');
-          var cards = document.getElementById('notice-board-cards');
+          var grid = document.getElementById('notice-board-cards');
           var show = items.slice(0, 3);
 
           show.forEach(function (n, i) {
-            var card = document.createElement('div');
-            card.className = 'notice-card' + (n.pinned ? ' notice-card-pinned' : '');
+            var card = document.createElement('article');
+            card.className = 'nb-card' + (n.pinned ? ' nb-card--pinned' : '');
 
-            var html = '<div class="notice-card-date">' + n.date;
-            if (n.pinned) html += ' <span class="notice-pin-badge">NEW</span>';
+            var html = '<div class="nb-card-top">';
+            html += '<span class="nb-card-icon">' + (icons[i] || icons[0]) + '</span>';
+            if (n.pinned) html += '<span class="nb-badge">NEW</span>';
             html += '</div>';
-            html += '<div class="notice-card-title">' + n.title + '</div>';
+            html += '<time class="nb-card-date">' + n.date + '</time>';
+            html += '<h3 class="nb-card-title">' + n.title + '</h3>';
 
             if (n.details && n.details.length) {
-              html += '<ul class="notice-card-details">';
+              html += '<ul class="nb-card-list">';
               n.details.forEach(function (d) {
                 html += '<li>' + d + '</li>';
               });
@@ -624,7 +631,7 @@
             }
 
             card.innerHTML = html;
-            cards.appendChild(card);
+            grid.appendChild(card);
           });
 
           board.style.display = '';
