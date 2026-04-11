@@ -205,6 +205,18 @@
     {
       "slug": "debate-competition-poster",
       "alt": "Official poster announcing the inter-school debate competition at KBIC"
+    },
+    {
+      "slug": "dance-class",
+      "alt": "Students learning dance moves from an instructor during the dance and movement class"
+    },
+    {
+      "slug": "computer-lab",
+      "alt": "Students focused on their screens in the school computer lab"
+    },
+    {
+      "slug": "smart-classroom",
+      "alt": "Teacher using the interactive smartboard to explain a lesson to senior students"
     }
   ],
   "events": [

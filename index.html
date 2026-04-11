@@ -194,6 +194,46 @@
       </div>
     </section>
 
+    <!-- ── Nursery Slideshow ── -->
+    <section class="section nursery-showcase">
+      <div class="container">
+        <div class="nursery-layout">
+          <div class="nursery-slider" data-reveal>
+            <div class="nursery-slides" id="nursery-slides">
+              <div class="nursery-slide active">
+                <img src="assets/images/nursery/classroom-1.jpg" alt="Nursery classroom — colourful walls, small tables, teachers with young learners" loading="lazy" />
+              </div>
+              <div class="nursery-slide">
+                <img src="assets/images/nursery/classroom-2.jpg" alt="Nursery classroom from a different angle — kids working at tables" loading="lazy" />
+              </div>
+              <div class="nursery-slide">
+                <img src="assets/images/nursery/play-area-1.jpg" alt="Nursery play area — slides, tunnels, and children at play" loading="lazy" />
+              </div>
+              <div class="nursery-slide">
+                <img src="assets/images/nursery/play-area-2.jpg" alt="Wide view of 'Learn With Fun' play zone with slides and swings" loading="lazy" />
+              </div>
+              <div class="nursery-slide">
+                <img src="assets/images/nursery/play-area-3.jpg" alt="Children on slides and see-saws in the nursery play zone" loading="lazy" />
+              </div>
+              <div class="nursery-slide">
+                <img src="assets/images/nursery/play-area-4.jpg" alt="Full play zone — trampoline, slides, and colourful murals" loading="lazy" />
+              </div>
+            </div>
+            <button class="nursery-arrow nursery-prev" aria-label="Previous slide" type="button">&#8249;</button>
+            <button class="nursery-arrow nursery-next" aria-label="Next slide" type="button">&#8250;</button>
+            <div class="nursery-dots" id="nursery-dots"></div>
+          </div>
+          <div class="nursery-text" data-reveal>
+            <p class="section-eyebrow" style="color:var(--gold);">Early Years at KBIC</p>
+            <h2>Where Learning Begins with Play</h2>
+            <p>Our nursery wing is built around how young children actually learn — through colour, movement, and discovery. Dedicated classrooms with wall-mounted learning aids, a "Learn With Fun" outdoor play zone with slides, trampolines, tunnels, and see-saws, and teachers trained in early childhood education.</p>
+            <p style="color:var(--muted); margin-top:12px; font-size:0.95rem;">Safe, joyful, and designed for the very first years of school life.</p>
+            <a class="btn btn-outline" href="pages/gallery.html" style="margin-top:20px;">See More in Gallery &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="section-header-center" data-reveal>
@@ -505,5 +545,38 @@
 
   <script src="assets/js/site-config.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script>
+    /* Nursery Slideshow */
+    document.addEventListener('DOMContentLoaded', function () {
+      var slides = document.querySelectorAll('.nursery-slide');
+      if (!slides.length) return;
+      var dotsWrap = document.getElementById('nursery-dots');
+      var cur = 0, timer;
+
+      /* Build dots */
+      slides.forEach(function (_, i) {
+        var d = document.createElement('button');
+        d.className = 'nursery-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', function () { go(i); });
+        dotsWrap.appendChild(d);
+      });
+      var dots = dotsWrap.querySelectorAll('.nursery-dot');
+
+      function go(n) {
+        slides[cur].classList.remove('active');
+        dots[cur].classList.remove('active');
+        cur = (n + slides.length) % slides.length;
+        slides[cur].classList.add('active');
+        dots[cur].classList.add('active');
+        resetTimer();
+      }
+      function resetTimer() { clearInterval(timer); timer = setInterval(function () { go(cur + 1); }, 4000); }
+
+      document.querySelector('.nursery-prev').addEventListener('click', function () { go(cur - 1); });
+      document.querySelector('.nursery-next').addEventListener('click', function () { go(cur + 1); });
+      resetTimer();
+    });
+  </script>
 </body>
 </html>

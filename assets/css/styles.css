@@ -3387,6 +3387,103 @@ body.no-scroll { overflow: hidden; }
   background: #0a1426;
 }
 
+/* ── Nursery Slideshow ── */
+.nursery-showcase {
+  background: linear-gradient(180deg, #f7f9fc 0%, #eef3fa 100%);
+}
+.nursery-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 860px) {
+  .nursery-layout { grid-template-columns: 1fr; gap: 28px; }
+}
+.nursery-slider {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(6,26,50,0.12);
+  background: #0a1426;
+}
+.nursery-slides {
+  position: relative;
+  aspect-ratio: 3 / 2;
+}
+.nursery-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.nursery-slide.active { opacity: 1; }
+.nursery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.nursery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  color: var(--brand-deep);
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 150ms, transform 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.nursery-arrow:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+.nursery-prev { left: 12px; }
+.nursery-next { right: 12px; }
+.nursery-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.nursery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.7);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 200ms, border-color 200ms;
+}
+.nursery-dot.active {
+  background: var(--gold, #c9a047);
+  border-color: var(--gold, #c9a047);
+}
+.nursery-text h2 {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--brand-deep);
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+.nursery-text p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 6px;
+}
+
 /* ── Merit / Topper Cards ── */
 .merit-year-title {
   font-family: var(--font-head);
