@@ -127,17 +127,21 @@
     </div>
   </div>
 
-  <!-- ── Latest Notices Strip ── -->
-  <div class="notices-strip" id="notices-strip" style="display:none;">
-    <div class="container notices-strip-inner">
-      <div class="notices-strip-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        <span data-i18n="latestNotices">Latest Notices</span>
+  <!-- ── Notice Board ── -->
+  <section class="notice-board" id="notice-board" style="display:none;">
+    <div class="container">
+      <div class="notice-board-inner">
+        <div class="notice-board-header">
+          <div class="notice-board-bell">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <span class="notice-board-label" data-i18n="latestNotices">Latest Notices</span>
+          <a href="pages/news.html" class="notice-board-viewall" data-i18n="viewAllNotices">View All &rarr;</a>
+        </div>
+        <div class="notice-board-cards" id="notice-board-cards"></div>
       </div>
-      <div class="notices-strip-list" id="notices-strip-list"></div>
-      <a href="pages/news.html" class="notices-strip-all" data-i18n="viewAllNotices">View All &rarr;</a>
     </div>
-  </div>
+  </section>
 
   <main>
     <section class="hero hero-with-bg">
@@ -592,22 +596,38 @@
     });
   </script>
   <script>
-    /* Latest Notices Strip — pulls from news.json */
+    /* Notice Board — pulls from news.json */
     (function () {
       fetch('assets/data/news.json')
         .then(function (r) { return r.json(); })
         .then(function (items) {
           if (!items || !items.length) return;
-          var strip = document.getElementById('notices-strip');
-          var list = document.getElementById('notices-strip-list');
+          var board = document.getElementById('notice-board');
+          var cards = document.getElementById('notice-board-cards');
           var show = items.slice(0, 3);
-          show.forEach(function (n) {
-            var el = document.createElement('span');
-            el.className = 'notices-strip-item';
-            el.innerHTML = '<strong>' + n.date + '</strong> ' + n.title;
-            list.appendChild(el);
+
+          show.forEach(function (n, i) {
+            var card = document.createElement('div');
+            card.className = 'notice-card' + (n.pinned ? ' notice-card-pinned' : '');
+
+            var html = '<div class="notice-card-date">' + n.date;
+            if (n.pinned) html += ' <span class="notice-pin-badge">NEW</span>';
+            html += '</div>';
+            html += '<div class="notice-card-title">' + n.title + '</div>';
+
+            if (n.details && n.details.length) {
+              html += '<ul class="notice-card-details">';
+              n.details.forEach(function (d) {
+                html += '<li>' + d + '</li>';
+              });
+              html += '</ul>';
+            }
+
+            card.innerHTML = html;
+            cards.appendChild(card);
           });
-          strip.style.display = '';
+
+          board.style.display = '';
         })
         .catch(function () {});
     })();

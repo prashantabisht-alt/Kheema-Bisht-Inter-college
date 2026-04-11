@@ -1,7 +1,14 @@
 [
   {
     "date": "08 Apr 2026",
-    "title": "New School Timings from 9 April — Nursery to Class 8 (Summer Schedule)"
+    "title": "New School Timings from 9 April (Summer Schedule)",
+    "pinned": true,
+    "details": [
+      "School starts at 7:30 AM",
+      "Nursery to UKG: dismissal 1:05 PM",
+      "Class 1–5: dismissal 1:15 PM",
+      "Class 6–8: dismissal 1:30 PM"
+    ]
   },
   {
     "date": "03 Mar 2026",
