@@ -673,5 +673,52 @@
         .catch(function () {});
     })();
   </script>
+
+  <!-- ── Result Popup Modal ── -->
+  <style>
+    .rp-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.72);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;}
+    .rp-overlay.rp-open{opacity:1;visibility:visible;}
+    .rp-modal{position:relative;max-width:92vw;max-height:90vh;display:flex;align-items:center;gap:12px;}
+    .rp-close{position:absolute;top:-14px;right:-14px;z-index:3;width:40px;height:40px;border-radius:50%;background:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.25);transition:transform .2s;}
+    .rp-close:hover{transform:scale(1.1);}
+    .rp-close svg{width:20px;height:20px;stroke:#333;stroke-width:2.5;}
+    .rp-slides{display:flex;gap:16px;overflow:hidden;scroll-snap-type:x mandatory;max-width:82vw;border-radius:16px;}
+    .rp-slides img{max-height:82vh;width:auto;max-width:min(400px,40vw);object-fit:contain;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.35);scroll-snap-align:center;flex-shrink:0;}
+    .rp-arrow{background:rgba(255,255,255,0.9);border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.2);flex-shrink:0;transition:transform .2s;}
+    .rp-arrow:hover{transform:scale(1.1);}
+    .rp-arrow svg{width:22px;height:22px;stroke:#333;stroke-width:2.5;}
+    .rp-link{position:absolute;bottom:-48px;left:50%;transform:translateX(-50%);white-space:nowrap;color:#fff;font-size:.88rem;font-weight:600;text-decoration:none;background:rgba(201,160,71,0.9);padding:8px 22px;border-radius:24px;transition:background .2s;}
+    .rp-link:hover{background:rgba(201,160,71,1);}
+    @media(max-width:700px){
+      .rp-slides{flex-direction:column;max-width:88vw;gap:10px;max-height:80vh;overflow-y:auto;scroll-snap-type:y mandatory;}
+      .rp-slides img{max-width:88vw;max-height:45vh;}
+      .rp-arrow{display:none;}
+      .rp-close{top:-12px;right:-8px;}
+    }
+  </style>
+  <div class="rp-overlay" id="resultPopup">
+    <div class="rp-modal">
+      <div class="rp-close" id="rpClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+      <div class="rp-slides" id="rpSlides">
+        <img src="assets/images/posters/result-2026-class12.jpg" alt="Class 12 Result 2026 — KBSMIC" />
+        <img src="assets/images/posters/result-2026-class10.jpg" alt="Class 10 Result 2026 — KBSMIC" />
+      </div>
+      <a href="pages/results-2026.html" class="rp-link">View Full Results &rarr;</a>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var overlay = document.getElementById('resultPopup');
+    var closeBtn = document.getElementById('rpClose');
+    var KEY = 'rp_dismissed_2026';
+    if (sessionStorage.getItem(KEY)) return;
+    setTimeout(function(){ overlay.classList.add('rp-open'); }, 600);
+    function close(){ overlay.classList.remove('rp-open'); sessionStorage.setItem(KEY,'1'); }
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', function(e){ if(e.target === overlay) close(); });
+  })();
+  </script>
 </body>
 </html>
