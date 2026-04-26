@@ -477,6 +477,79 @@
       position: relative; z-index: 1;
     }
     .results-cta .btn { position: relative; z-index: 1; }
+
+    /* ── In the Press ── */
+    .press-section { margin: 56px 0 0; }
+    .press-section .section-tag {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .press-section h2 {
+      font-family: var(--font-head);
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--brand-deep, #061a32); margin: 0 0 8px;
+    }
+    .press-section .press-sub {
+      font-size: 0.95rem; color: var(--muted, #6b7280);
+      margin: 0 0 28px; line-height: 1.6;
+    }
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .press-card {
+      background: #fff; border: 1px solid var(--border, #e8e8e8);
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .press-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+    .press-card img { width: 100%; height: auto; display: block; }
+    .press-card .pc-body { padding: 20px 22px; }
+    .press-card .pc-source {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .press-card .pc-source svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .press-card .pc-title {
+      font-family: var(--font-head);
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--brand-deep, #061a32); line-height: 1.4; margin: 0 0 8px;
+    }
+    .press-card .pc-excerpt {
+      font-size: 0.85rem; color: var(--muted, #6b7280);
+      line-height: 1.55; margin: 0 0 14px;
+    }
+    .press-card .pc-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--accent); text-decoration: none; transition: gap 0.2s;
+    }
+    .press-card .pc-link:hover { gap: 10px; }
+    .press-card .pc-link svg { width: 14px; height: 14px; }
+    .press-card--feature {
+      background: linear-gradient(160deg, #061a32 0%, #0d3259 100%);
+      border: none; position: relative; overflow: hidden;
+    }
+    .press-card--feature::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 400px 300px at 80% 20%, rgba(201,160,71,0.12), transparent);
+      pointer-events: none;
+    }
+    .press-card--feature .pc-body { position: relative; z-index: 1; padding: 28px 26px; }
+    .press-card--feature .pc-title { color: #fff; font-size: 1.15rem; }
+    .press-card--feature .pc-excerpt { color: rgba(244,246,251,0.7); }
+    .press-card--feature .pc-link { color: var(--accent); }
+    .press-card--feature .pc-hindi {
+      font-size: 0.95rem; color: rgba(244,246,251,0.82);
+      line-height: 1.65; margin: 0 0 16px; font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -919,6 +992,52 @@
                   <span class="ls-num">5</span>
                   <span class="ls-label">Block Toppers<br>in 4 Years Alone</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════ IN THE PRESS ═══════ -->
+        <div class="press-section">
+          <span class="section-tag">In the Press</span>
+          <h2>Media Coverage</h2>
+          <p class="press-sub">Our students' achievements made the news — featured in Live Hindustan and regional press.</p>
+          <div class="press-grid">
+            <div class="press-card press-card--feature">
+              <div class="pc-body">
+                <div class="pc-source">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
+                  Live Hindustan
+                </div>
+                <p class="pc-title">खीमा बिष्ट इंटर कॉलेज का शानदार प्रदर्शन — दक्ष आर्य बने ब्लॉक टॉपर</p>
+                <p class="pc-hindi">"विद्यालय का परीक्षाफल शत-प्रतिशत रहा — 95% विद्यार्थी प्रथम श्रेणी में उत्तीर्ण हुए।"</p>
+                <p class="pc-excerpt">Four students of K.B.S.M. Inter College Gaujharia secured places in the Uttarakhand State Top 25 Merit List, with Daksh Kumar Arya emerging as the Khatima Block Topper.</p>
+                <a class="pc-link" href="https://www.livehindustan.com/uttarakhand/rudrapur/story-uttarakhand-board-exam-success-khima-bisht-students-shine-with-top-rankings-201777121879423.html" target="_blank" rel="noopener noreferrer">
+                  Read Full Article
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="press-card">
+              <img src="../assets/images/press/press-clip-1.jpg" alt="Newspaper clipping — Daksh Kumar Arya, Khatima Block Topper, with Principal" loading="lazy" />
+              <div class="pc-body">
+                <div class="pc-source">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
+                  Regional Press
+                </div>
+                <p class="pc-title">खीमा बिष्ट के दक्ष आर्य बने इंटर में ब्लॉक टॉपर</p>
+                <p class="pc-excerpt">Principal with the Block Topper Daksh Kumar Arya and other state merit-list achievers at the felicitation.</p>
+              </div>
+            </div>
+            <div class="press-card">
+              <img src="../assets/images/press/press-clip-2.jpg" alt="Newspaper clipping — All four KBSMIC state merit list achievers 2026" loading="lazy" />
+              <div class="pc-body">
+                <div class="pc-source">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
+                  Regional Press
+                </div>
+                <p class="pc-title">खीमा बिष्ट इंटर कॉलेज का शानदार प्रदर्शन</p>
+                <p class="pc-excerpt">Photos of all four state merit-list achievers — Daksh, Chandani, Abhay, and Jay — featured alongside their ranks and scores.</p>
               </div>
             </div>
           </div>
