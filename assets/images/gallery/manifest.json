@@ -160,7 +160,7 @@
   "academic": [
     {
       "slug": "toppers-2026",
-      "alt": "UBSE 2026 State Merit List achievers — Daksh Kumar Arya (Block Topper), Abhay Singh Rana, Jay Bashera, and Chandani Kholiya — felicitated with garlands by the Principal and faculty"
+      "alt": "UBSE 2026 State Merit List achievers \u2014 Daksh Kumar Arya (Block Topper), Abhay Singh Rana, Jay Bashera, and Chandani Kholiya \u2014 felicitated with garlands by the Principal and faculty"
     },
     {
       "slug": "smart-class-teaching",
@@ -317,6 +317,64 @@
     {
       "slug": "male-staff-2",
       "alt": "Senior faculty and administration paying tribute during a memorial ceremony in the school courtyard"
+    }
+  ],
+  "summer-camp-2026": [
+    {
+      "slug": "camp-poster",
+      "alt": "Summer Camp 2026 poster \u2014 Kids Class: Fun, Learn, Play, Grow"
+    },
+    {
+      "slug": "camp-collage",
+      "alt": "Collage of summer camp activities \u2014 pool play, group photos, colourful decorations"
+    },
+    {
+      "slug": "craft-activity",
+      "alt": "Little campers doing hands-on craft work together at the activity table"
+    },
+    {
+      "slug": "water-play-outdoor",
+      "alt": "Children splashing and playing in water during the outdoor fun session"
+    },
+    {
+      "slug": "group-photo-banner",
+      "alt": "Group photo of campers and teachers in front of the KBIC Summer Camp 2026 banner"
+    },
+    {
+      "slug": "snack-time-classroom",
+      "alt": "Campers enjoying snack time together in the colourful classroom"
+    },
+    {
+      "slug": "teachers-walking-kids",
+      "alt": "Teachers walking hand-in-hand with little campers across the campus"
+    },
+    {
+      "slug": "summer-photo-booth",
+      "alt": "Children posing with handmade summer-themed decorations \u2014 sunshine, clouds, umbrellas"
+    },
+    {
+      "slug": "dining-hall-snacks",
+      "alt": "Campers having refreshments in the school dining hall"
+    },
+    {
+      "slug": "pool-splash",
+      "alt": "Kids splashing joyfully in the inflatable pool on a sunny camp day"
+    },
+    {
+      "slug": "umbrella-group-1",
+      "alt": "Colourful group photo with teachers and children holding bright umbrellas"
+    },
+    {
+      "slug": "umbrella-group-2",
+      "alt": "Another batch of campers with colourful umbrellas and summer decorations"
+    },
+    {
+      "slug": "umbrella-group-3",
+      "alt": "Small group of campers with fun sunglasses and summer props"
+    },
+    {
+      "slug": "pool-boys",
+      "alt": "Boys lined up in the inflatable pool, smiling at the camera"
     }
   ]
 }

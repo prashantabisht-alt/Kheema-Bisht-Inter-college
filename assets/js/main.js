@@ -9,6 +9,7 @@
       admissions: "Admissions",
       facilities: "Facilities",
       staff: "Staff",
+      "summer-camp-2026": "Summer Camp 2026",
       gallery: "Gallery",
       news: "News",
       contact: "Contact",
@@ -1094,7 +1095,8 @@
       cultural: "Cultural",
       academic: "Academic",
       events: "Events",
-      staff: "Staff"
+      staff: "Staff",
+      "summer-camp-2026": "Summer Camp 2026"
     };
 
     const lightbox = document.getElementById("lightbox");
