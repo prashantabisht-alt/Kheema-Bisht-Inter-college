@@ -10,6 +10,7 @@
       facilities: "Facilities",
       staff: "Staff",
       "summer-camp-2026": "Summer Camp 2026",
+      "summer-activity-2026": "Summer Activity 2026",
       gallery: "Gallery",
       news: "News",
       contact: "Contact",
@@ -1096,7 +1097,8 @@
       academic: "Academic",
       events: "Events",
       staff: "Staff",
-      "summer-camp-2026": "Summer Camp 2026"
+      "summer-camp-2026": "Summer Camp 2026",
+      "summer-activity-2026": "Summer Activity 2026"
     };
 
     const lightbox = document.getElementById("lightbox");

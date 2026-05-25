@@ -376,5 +376,23 @@
       "slug": "pool-boys",
       "alt": "Boys lined up in the inflatable pool, smiling at the camera"
     }
+  ],
+  "summer-activity-2026": [
+    {
+      "slug": "activity-day1-poster",
+      "alt": "Summer Activity Day 1 poster \u2014 Happy Summer Activity Start Day at KBIC"
+    },
+    {
+      "slug": "activity-day2-crafts",
+      "alt": "Day 2 \u2014 Creative expression, team work, learning by doing with hands-on craft activities"
+    },
+    {
+      "slug": "activity-day3-collage",
+      "alt": "Day 3 \u2014 Cooking without fire, best-out-of-waste fashion show, and yummy healthy treats"
+    },
+    {
+      "slug": "activity-day3-kids",
+      "alt": "Day 3 \u2014 Kids learning, playing, and creating together on a fun-filled summer day"
+    }
   ]
 }
