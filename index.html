@@ -714,7 +714,6 @@
     var closeBtn = document.getElementById('rpClose');
     var KEY = 'rp_dismissed_2026';
     if (sessionStorage.getItem(KEY)) return;
-    setTimeout(function(){ overlay.classList.add('rp-open'); }, 600);
     function close(){ overlay.classList.remove('rp-open'); sessionStorage.setItem(KEY,'1'); }
     closeBtn.addEventListener('click', close);
     overlay.addEventListener('click', function(e){ if(e.target === overlay) close(); });
