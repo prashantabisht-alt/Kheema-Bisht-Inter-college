@@ -1041,7 +1041,9 @@
   });
 
   if (looksReal(cfg.whatsappNumber)) {
-    const primaryWhatsApp = cfg.whatsappNumber.split(",")[0].replace(/\D/g, "");
+    const primaryDigits = cfg.whatsappNumber.split(",")[0].replace(/\D/g, "");
+    // wa.me needs the full international number: add India's 91 to a 10-digit number
+    const primaryWhatsApp = primaryDigits.length === 10 ? "91" + primaryDigits : primaryDigits;
     if (primaryWhatsApp) {
       const msg = encodeURIComponent(
         cfg.whatsappMessage || "Hello, I need information."
